@@ -6,53 +6,47 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 17:21:53 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 00:04:50 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// pa : push a - prend le premier élément au sommet de b et le met sur a. (ne fait rien si b est vide).
-// pb : push b - prend le premier élément au sommet de a et le met sur b. (ne fait rien si a est vide).
-// ra : rotate a - décale d’une position tous les élements de la pile a. (vers le haut, le premier élément devient le dernier).
-// rb : rotate b - décale d’une position tous les élements de la pile b. (vers le haut, le premier élément devient le dernier).
-// rr : ra et rb en meme temps. rra : reverse rotate a (vers le bas, le dernier élément devient le premier).
-// rrb : reverse rotate b (vers le bas, le dernier élément devient le premier).
-// rrr : rra et rrb en même temps.
 
-void	pa(t_swap **a, t_swap **b)
+t_swap	*ft_last_activ(t_swap *swap)
 {
-	int		temp;
-	t_swap	*end;
-	t_swap	*b_end;
+	t_swap	*tmp;
 
-	if (a)
-	{
-		end = (*a)->end;
-		b_end = (*a)->end->prev;
-		if (end != NULL && b_end != NULL)
-		{
-			temp = end->stack;
-			b_end->next = NULL;
-			free(end);
-			ft_swapend(b, temp);
-		}
-		else if (end != NULL && b_end == NULL)
-		{
-			temp = end->stack;
-			*a = NULL;
-			ft_swapend(b, temp);
-		}
-	}
-	// ft_putstr("pa");
+	tmp = swap->end;
+	while (tmp->activ == 0)
+		tmp = tmp->prev;
+	return (tmp);
 }
 
-void	ft_launcher(t_swap **a)
+t_swap	*ft_a_last_activ(t_swap *swap)
 {
-	t_swap	*b;
+	t_swap	*tmp;
 
-	b = NULL;
-	// ss(*a, b);
-	pa(a, &b);
+	tmp = swap->end;
+	while (tmp->activ == 0)
+		tmp = tmp->prev;
+	if (tmp != NULL)
+		tmp = tmp->prev;
+	return (tmp);
+}
+
+void	ft_launcher(t_swap *a, t_swap *b)
+{
+	int		i;
+
+	i = 0;
+	if (ft_last_activ(a) > ft_a_last_activ(a) && ft_a_last_activ(a) != NULL)
+	{
+		i++;
+		ft_putstr("sa ");
+		sa(a);
+	}
+	ft_putchar('\n');
+	ft_putstr("a : ");ft_print_swap(a);
 	ft_putstr("b : ");ft_print_swap(b);
 
 }

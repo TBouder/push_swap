@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 16:57:02 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/29 22:22:48 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ void	sa(t_swap *a)
 {
 	int		temp;
 	t_swap	*end;
-	t_swap	*b_end;
+	t_swap	*end_2;
 
-	if (a)
+	end = a->end;
+	end_2 = a->end->prev;
+	if (end != NULL && end_2 != NULL)
 	{
-		end = a->end;
-		b_end = a->end->prev;
-		if (end != NULL && b_end != NULL)
-		{
-			temp = end->stack;
-			end->stack = b_end->stack;
-			b_end->stack = temp;
-		}
+		temp = end->stack;
+		end->stack = end_2->stack;
+		end_2->stack = temp;
 	}
 	// ft_putstr("sa");
 }
@@ -39,18 +36,15 @@ void	sb(t_swap *b)
 {
 	int		temp;
 	t_swap	*end;
-	t_swap	*b_end;
+	t_swap	*end_2;
 
-	if (b)
+	end = b->end;
+	end_2 = b->end->prev;
+	if (end != NULL && end_2 != NULL)
 	{
-		end = b->end;
-		b_end = b->end->prev;
-		if (end != NULL && b_end != NULL)
-		{
-			temp = end->stack;
-			end->stack = b_end->stack;
-			b_end->stack = temp;
-		}
+		temp = end->stack;
+		end->stack = end_2->stack;
+		end_2->stack = temp;
 	}
 	// ft_putstr("sb");
 }
