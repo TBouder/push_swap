@@ -6,60 +6,59 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 14:22:51 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/29 17:21:11 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print(int *a, int len)
+void	ft_extract_stack(char **str, int len, t_swap **a)
 {
-	int		i;
-
-	i = 0;
-	while (i < len)
-	{
-		ft_putnbr(a[i]);
-		ft_putchar(' ');
-		i++;
-	}
-	ft_putchar('\n');
-}
-
-int		*ft_extract_a(char **str, int len)
-{
-	int		*a;
-	int		j;
 	long	value;
 
-	j = 0;
-	if (!(a = (int *)malloc(sizeof(int) * len)))
-		ft_error();
-	while (len != 0)
+	while (len > 0)
 	{
 		value = ft_atoi_swap(str[len]);
 		ft_check_min_man(value);
-		a[j] = value;
+		ft_swapend(a, value);
 		len--;
-		j++;
 	}
-	return (a);
+}
+
+void	ft_print_swap(t_swap *a)
+{
+	if (a && a->next)
+	{
+		while (a->next)
+		{
+			ft_putnbr(a->stack);
+			ft_putchar(' ');
+			a = a->next;
+			if (a->next == NULL)
+				ft_putnbr(a->stack);
+		}
+	}
+	else if (a && a->next == NULL)
+		ft_putnbr(a->stack);
+	ft_putchar('\n');
 }
 
 int		main(int ac, char **av)
 {
 	int		i;
-	int		*a;
+	t_swap	*a;
 
 	i = ac - 1;
 	if (ac == 0)
 		ft_error();
 	else
 	{
-		a = ft_extract_a(av, i);
-		ft_check_duplicates(a, i);
-		ft_launcher(&a, i);
-		// ft_print(a, i);
+		ft_extract_stack(av, i, &a);
+		ft_check_duplicates(a);
+		ft_end(a);
+		ft_putstr("a : ");ft_print_swap(a);
+		ft_launcher(&a);
+		ft_putstr("a : ");ft_print_swap(a);
 	}
 	return (0);
 }

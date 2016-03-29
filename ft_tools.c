@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 14:04:04 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/29 15:24:46 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,19 @@ void	ft_check_min_man(long value)
 		ft_error();
 }
 
-void	ft_check_duplicates(int *a, int len)
+void	ft_check_duplicates(t_swap *a)
 {
-	int		i;
-	int		j;
+	t_swap	*i;
 
-	i = 0;
-	while (i < len)
+	while (a)
 	{
-		j = i + 1;
-		while (j < len)
+		i = a->next;
+		while (i)
 		{
-			if (a[i] == a[j])
+			if (a->stack == i->stack)
 				ft_error();
-			j++;
+			i = i->next;
 		}
-		i++;
+		a = a->next;
 	}
 }
