@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 17:54:11 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 18:27:42 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,18 @@ int		ft_is_sorted(t_swap *swap)
 	return (1);
 }
 
-t_swap	*ft_last_activ(t_swap *swap)
+int		ft_is_null(t_swap *swap)
+{
+	while (swap)
+	{
+		if (swap->activ == 1)
+			return (0);
+		swap = swap->next;
+	}
+	return (1);
+}
+
+t_swap	*ft_lactiv(t_swap *swap)
 {
 	t_swap	*tmp;
 
@@ -38,7 +49,7 @@ t_swap	*ft_last_activ(t_swap *swap)
 	return (tmp);
 }
 
-t_swap	*ft_a_last_activ(t_swap *swap)
+t_swap	*ft_alactiv(t_swap *swap)
 {
 	t_swap	*tmp;
 
@@ -53,34 +64,49 @@ t_swap	*ft_a_last_activ(t_swap *swap)
 void	ft_launcher(t_swap *a, t_swap *b)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (ft_is_sorted(a) == 0 && i < 5)
+	while ((ft_is_sorted(a) == 0 || ft_is_null(b) == 0) && i < 50)
 	{
-		if (ft_last_activ(a)->stack > ft_a_last_activ(a)->stack)
+		if (ft_lactiv(a)->stack > ft_alactiv(a)->stack)
 		{
 			ft_putstr("sa : ");
 			sa(a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
-		if (ft_last_activ(b)->stack > ft_a_last_activ(b)->stack)
+		else if (ft_lactiv(b)->stack < ft_alactiv(b)->stack)
 		{
 			ft_putstr("sb : ");
 			sb(b);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
-		if (ft_last_activ(a)->stack < ft_a_last_activ(a)->stack && ft_last_activ(a)->stack < a->stack)
-		{
-			ft_putstr("pb : ");
-			pb(b, a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-		if (ft_last_activ(a)->stack < ft_a_last_activ(a)->stack && ft_last_activ(a)->stack > a->stack)
+
+		else if (ft_lactiv(a)->stack < ft_alactiv(a)->stack && ft_lactiv(a)->stack > a->stack)
 		{
 			ft_putstr("ra : ");
 			ra(a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
+
+		else if ((ft_lactiv(a)->stack < ft_alactiv(a)->stack)
+				&& (ft_lactiv(a)->stack < a->stack)
+				&& ft_lactiv(a)->stack > ft_lactiv(b)->stack)
+		{
+			ft_putstr("pb : ");
+			pb(b, a);
+		}
+		else if ((ft_lactiv(b)->stack < ft_lactiv(a)->stack)
+				&& (ft_lactiv(b)->stack > a->stack))
+		{
+			ft_putstr("pa : ");
+			pa(a, b);
+		}
+		else if ((ft_lactiv(b)->stack < ft_lactiv(a)->stack)
+				&& (ft_lactiv(b)->stack < a->stack))
+		{
+			ft_putstr("pa : ");
+			pa(a, b);
+		}
+
+		ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		i++;
 	}
 
