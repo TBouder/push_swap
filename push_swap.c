@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 17:27:06 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 17:33:43 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	ft_print_swap(t_swap *a)
 	{
 		while (a->next)
 		{
-			// if (a->activ)
-			// {
+			if (a->activ)
+			{
 				ft_putnbr(a->stack);
 				ft_putchar(' ');
-			// }
+			}
 			a = a->next;
-			if (a->next == NULL)// && a->activ)
+			if (a->next == NULL && a->activ)
 				ft_putnbr(a->stack);
 		}
 	}
-	else if (a && a->next == NULL)// && a->activ)
+	else if (a && a->next == NULL && a->activ)
 		ft_putnbr(a->stack);
 	// ft_putchar('\n');
 }
