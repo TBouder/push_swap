@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 18:27:42 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 18:54:28 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ t_swap	*ft_alactiv(t_swap *swap)
 void	ft_launcher(t_swap *a, t_swap *b)
 {
 	int		i;
-	int		j;
 
 	i = 0;
 	while ((ft_is_sorted(a) == 0 || ft_is_null(b) == 0) && i < 50)
@@ -73,42 +72,48 @@ void	ft_launcher(t_swap *a, t_swap *b)
 		{
 			ft_putstr("sa : ");
 			sa(a);
+			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
-		else if (ft_lactiv(b)->stack < ft_alactiv(b)->stack)
+		if (ft_lactiv(b)->stack < ft_alactiv(b)->stack)
 		{
 			ft_putstr("sb : ");
 			sb(b);
+			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
 
-		else if (ft_lactiv(a)->stack < ft_alactiv(a)->stack && ft_lactiv(a)->stack > a->stack)
-		{
-			ft_putstr("ra : ");
-			ra(a);
-		}
-
-		else if ((ft_lactiv(a)->stack < ft_alactiv(a)->stack)
+		if ((ft_lactiv(a)->stack < ft_alactiv(a)->stack)
 				&& (ft_lactiv(a)->stack < a->stack)
-				&& ft_lactiv(a)->stack > ft_lactiv(b)->stack)
+				&& ((ft_lactiv(a)->stack > ft_lactiv(b)->stack)))
 		{
 			ft_putstr("pb : ");
 			pb(b, a);
+			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
-		else if ((ft_lactiv(b)->stack < ft_lactiv(a)->stack)
+		if ((ft_lactiv(b)->stack < ft_lactiv(a)->stack)
 				&& (ft_lactiv(b)->stack > a->stack))
 		{
 			ft_putstr("pa : ");
 			pa(a, b);
-		}
-		else if ((ft_lactiv(b)->stack < ft_lactiv(a)->stack)
-				&& (ft_lactiv(b)->stack < a->stack))
-		{
-			ft_putstr("pa : ");
-			pa(a, b);
+			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
 		}
 
-		ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+
+		if ((ft_lactiv(a)->stack < ft_alactiv(a)->stack)
+				&& (ft_lactiv(a)->stack > a->stack))
+		{
+			ft_putstr("ra : ");
+			ra(a);
+			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+		}
+
 		i++;
 	}
+	if (ft_lactiv(a)->stack < ft_alactiv(a)->stack)
+		ft_putendl("1");
+	if (ft_lactiv(a)->stack < a->stack)
+		ft_putendl("2");
+	if (ft_lactiv(a)->stack > ft_lactiv(b)->stack)
+		ft_putendl("3");
 
 	ft_putchar('\n');ft_putchar('\n');
 
