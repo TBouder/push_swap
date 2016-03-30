@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 22:22:48 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 17:01:09 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	sa(t_swap *a)
 	t_swap	*end_2;
 
 	end = a->end;
-	end_2 = a->end->prev;
+	while (end && end->activ == 0)
+		end = end->prev;
+	end_2 = end->prev;
 	if (end != NULL && end_2 != NULL)
 	{
 		temp = end->stack;
@@ -39,7 +41,9 @@ void	sb(t_swap *b)
 	t_swap	*end_2;
 
 	end = b->end;
-	end_2 = b->end->prev;
+	while (end && end->activ == 0)
+		end = end->prev;
+	end_2 = end->prev;
 	if (end != NULL && end_2 != NULL)
 	{
 		temp = end->stack;

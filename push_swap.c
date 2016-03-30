@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 23:51:28 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 17:27:06 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void	ft_print_swap(t_swap *a)
 	{
 		while (a->next)
 		{
-			if (a->activ)
-			{
+			// if (a->activ)
+			// {
 				ft_putnbr(a->stack);
 				ft_putchar(' ');
-			}
+			// }
 			a = a->next;
-			if (a->next == NULL && a->activ)
+			if (a->next == NULL)// && a->activ)
 				ft_putnbr(a->stack);
 		}
 	}
-	else if (a && a->next == NULL && a->activ)
+	else if (a && a->next == NULL)// && a->activ)
 		ft_putnbr(a->stack);
-	ft_putchar('\n');
+	// ft_putchar('\n');
 }
 
 void	ft_extract_stack(char **str, int len, t_swap **a)
@@ -69,9 +69,11 @@ int		main(int ac, char **av)
 		ft_extract_stack(av, i, &a);
 		ft_check_duplicates(a);
 		ft_init_b(i, &b);
+
 		ft_end(a);
 		ft_end(b);
-		ft_putstr("s : ");ft_print_swap(a);ft_putchar('\n');
+
+		ft_putstr("s : ");ft_print_swap(a);ft_putchar('\n');ft_putchar('\n');
 		ft_launcher(a, b);
 	}
 	return (0);

@@ -6,13 +6,13 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:45:38 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 23:58:25 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 16:41:24 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_swap		*ft_end(t_swap *swap)
+t_swap			*ft_end(t_swap *swap)
 {
 	t_swap		*end;
 	t_swap		*start;
@@ -30,7 +30,7 @@ t_swap		*ft_end(t_swap *swap)
 	return (swap);
 }
 
-static t_swap		*ft_swapnew(int value, t_swap *prev, int activ)
+static t_swap	*ft_swapnew(int value, t_swap *prev, int activ)
 {
 	t_swap	*swap;
 
@@ -43,7 +43,7 @@ static t_swap		*ft_swapnew(int value, t_swap *prev, int activ)
 	return (swap);
 }
 
-void				ft_swapend(t_swap **swap, int value, int activ)
+void			ft_swapend(t_swap **swap, int value, int activ)
 {
 	t_swap	*new_swap;
 	t_swap	*start;

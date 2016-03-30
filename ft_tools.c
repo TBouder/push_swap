@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 15:24:46 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/30 14:12:48 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,31 @@ void	ft_check_duplicates(t_swap *a)
 			i = i->next;
 		}
 		a = a->next;
+	}
+}
+
+void	ft_push_front(t_swap *stack)
+{
+	t_swap	*end;
+
+	while (stack->next)
+	{
+		if (stack->activ == 0)
+		{
+			end = stack;
+			while (end)
+			{
+				if (end->activ == 1)
+				{
+					stack->activ = 1;
+					stack->stack = end->stack;
+					end->activ = 0;
+					end->stack = 0;
+				}
+				else
+					end = end->next;
+			}
+		}
+		stack = stack->next;
 	}
 }
