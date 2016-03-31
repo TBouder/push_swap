@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:45:38 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/31 11:27:31 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:51:20 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void			ft_swapend(t_swap **swap, int value, int activ)
 		*swap = ft_swapnew(value, NULL, activ);
 }
 
-void	ft_push_front(t_swap *stack)
+void			ft_push_front(t_swap *stack)
 {
 	t_swap	*end;
 
@@ -71,4 +71,45 @@ void	ft_push_front(t_swap *stack)
 		}
 		stack = stack->next;
 	}
+}
+
+int				ft_swaplen(t_swap *swap)
+{
+	int		i;
+
+	i = 0;
+	while (swap)
+	{
+		swap = swap->next;
+		i++;
+	}
+	return (i);
+}
+
+int				ft_swaprev(t_swap *swap)
+{
+	int		len;
+	int		o_len;
+
+	len = ft_swaplen(swap);
+	swap = swap->end;
+	while (swap && swap->activ == 0 && swap->prev)
+	{
+		swap = swap->prev;
+		len--;
+	}
+	o_len = len;
+	while (swap->prev)
+	{
+		if (swap->stack > swap->prev->stack)
+		{
+			if (len > o_len / 2 )
+				return (1);
+			else
+				return (0);
+		}
+		swap = swap->prev;
+		len--;
+	}
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 17:01:13 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:47:30 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,4 @@ void	pb(t_swap *a, t_swap *b)
 		end_b->activ = 0;
 		end_b->stack = 0;
 	}
-	// ft_putstr("pb");
 }

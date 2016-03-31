@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 23:58:02 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:49:35 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	rra(t_swap *a)
 	}
 	a->stack = first;
 	a->activ = activ;
+	ft_push_front(a->start);
 }
 
 void	rrb(t_swap *b)
@@ -59,6 +60,7 @@ void	rrb(t_swap *b)
 	}
 	b->stack = first;
 	b->activ = activ;
+	ft_push_front(b->start);
 }
 
 void	rrr(t_swap *a, t_swap *b)

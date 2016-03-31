@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/31 19:06:43 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:44:52 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ft_success(t_swap *a, t_swap *b, int *i)
 
 void		ft_calls_swap(t_swap *a, t_swap *b, int *i)
 {
-	if (last(a) < n_last(a))
+	if (ft_z(a) < ft_y(a))
 	{
-		if (last(a) > a->stack)
+		if (ft_z(a) > a->stack)
 		{
-			if (last(b) > n_last(b) && last(b) < b->stack)
+			if (ft_z(b) > ft_y(b) && ft_z(b) < b->stack)
 				ft_rot_ab_r(a, b, i);
-			else if (last(b) > a->stack)
+			else if (ft_z(b) > a->stack)
 				ft_push_to_a_r(a, b, i);
 			else
 				ft_rot_a_r(a, b, i);
@@ -36,8 +36,8 @@ void		ft_calls_swap(t_swap *a, t_swap *b, int *i)
 		else
 			ft_push_to_b_r(a, b, i);
 	}
-	else if (last(b) > n_last(b))
-		if (last(b) < b->stack)
+	else if (ft_z(b) > ft_y(b))
+		if (ft_z(b) < b->stack)
 			ft_rot_b_r(a, b, i);
 }
 
@@ -78,23 +78,23 @@ void		ft_swap_ab_r(t_swap *a, t_swap *b, int *i)
 
 void		ft_calls_push(t_swap *a, t_swap *b, int *i)
 {
-	if (last(a) < n_last(a))
+	if (ft_z(a) < ft_y(a))
 	{
-		if (last(a) > a->stack)
-			last(b) > n_last(b) && last(b) < b->stack ? ft_rot_ab_r(a, b, i) : ft_rot_a_r(a, b, i);
-		else if (last(a) < a->stack)
+		if (ft_z(a) > a->stack)
+			ft_z(b) > ft_y(b) && ft_z(b) < b->stack ? ft_rot_ab_r(a, b, i) : ft_rot_a_r(a, b, i);
+		else if (ft_z(a) < a->stack)
 			ft_push_to_b_r(a, b, i);
 	}
-	else if (last(a) > n_last(a))
+	else if (ft_z(a) > ft_y(a))
 	{
-		if (last(a) < a->stack)
-			last(b) < n_last(b) ? ft_swap_ab_r(a, b, i) : ft_swap_a_r(a, b, i);
-		if (last(a) > a->stack)
+		if (ft_z(a) < a->stack)
+			ft_z(b) < ft_y(b) ? ft_swap_ab_r(a, b, i) : ft_swap_a_r(a, b, i);
+		if (ft_z(a) > a->stack)
 			ft_rev_rot_a_r(a, b, i);
 	}
-	else if (last(b) > n_last(b) && last(b) < b->stack)
+	else if (ft_z(b) > ft_y(b) && ft_z(b) < b->stack)
 		ft_rot_b_r(a, b, i);
-	else if (last(b) < n_last(b))
+	else if (ft_z(b) < ft_y(b))
 		ft_swap_b_r(a, b, i);
 }
 
@@ -102,7 +102,7 @@ void		ft_push_to_b_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	if (sorted_a(a))
+	if (ft_sorted_a(a))
 		ft_push_to_a_r(a, b, i);
 	else
 	{
@@ -129,24 +129,24 @@ void		ft_push_to_a_r(t_swap *a, t_swap *b, int *i)
 
 void		ft_calls_rot(t_swap *a, t_swap *b, int *i)
 {
-	if (last(a) > n_last(a))
-		last(b) < n_last(b) ? ft_swap_ab_r(a, b, i) : ft_swap_a_r(a, b, i);
-	else if (last(a) < n_last(a))
+	if (ft_z(a) > ft_y(a))
+		ft_z(b) < ft_y(b) ? ft_swap_ab_r(a, b, i) : ft_swap_a_r(a, b, i);
+	else if (ft_z(a) < ft_y(a))
 	{
-		if (last(a) < a->stack)
-			n_last(a) > a->stack ? ft_rot_a_r(a, b, i) : ft_push_to_b_r(a, b, i);
-		else if (last(a) > a->stack)
+		if (ft_z(a) < a->stack)
+			ft_y(a) > a->stack ? ft_rot_a_r(a, b, i) : ft_push_to_b_r(a, b, i);
+		else if (ft_z(a) > a->stack)
 		{
-			if (last(b) > a->stack)
+			if (ft_z(b) > a->stack)
 				ft_push_to_a_r(a, b, i);
-			else if (last(a) > a->stack)
-				last(b) > n_last(b) && last(b) < b->stack ? ft_rot_ab_r(a, b, i) : ft_rot_a_r(a, b, i);
+			else if (ft_z(a) > a->stack)
+				ft_z(b) > ft_y(b) && ft_z(b) < b->stack ? ft_rot_ab_r(a, b, i) : ft_rot_a_r(a, b, i);
 		}
 	}
-	else if (last(b) < n_last(b))
+	else if (ft_z(b) < ft_y(b))
 		ft_swap_b_r(a, b, i);
-	else if (last(b) > n_last(b))
-		last(b) < b->stack ? ft_rot_b_r(a, b, i) : 0;
+	else if (ft_z(b) > ft_y(b))
+		ft_z(b) < b->stack ? ft_rot_b_r(a, b, i) : 0;
 }
 
 void		ft_rot_a_r(t_swap *a, t_swap *b, int *i)
@@ -186,29 +186,29 @@ void		ft_rot_ab_r(t_swap *a, t_swap *b, int *i)
 
 void		ft_calls_rev_rot(t_swap *a, t_swap *b, int *i)
 {
-	if (last(a) > n_last(a))
+	if (ft_z(a) > ft_y(a))
 	{
-		if (last(a) < a->stack)
-			last(b) < n_last(b) ? ft_swap_ab_r(a, b, i) : ft_swap_a_r(a, b, i);
-		if (last(a) > a->stack)
+		if (ft_z(a) < a->stack)
+			ft_z(b) < ft_y(b) ? ft_swap_ab_r(a, b, i) : ft_swap_a_r(a, b, i);
+		if (ft_z(a) > a->stack)
 			ft_rev_rot_a_r(a, b, i);
 	}
-	else if (last(a) < n_last(a))
+	else if (ft_z(a) < ft_y(a))
 	{
-		if (last(a) < a->stack)
-			n_last(a) > a->stack ? ft_rot_a_r(a, b, i) : ft_push_to_b_r(a, b, i);
-		else if (last(a) > a->stack)
+		if (ft_z(a) < a->stack)
+			ft_y(a) > a->stack ? ft_rot_a_r(a, b, i) : ft_push_to_b_r(a, b, i);
+		else if (ft_z(a) > a->stack)
 		{
-			if (last(b) > a->stack)
+			if (ft_z(b) > a->stack)
 				ft_push_to_a_r(a, b, i);
-			else if (last(a) > a->stack)
-				last(b) > n_last(b) && last(b) < b->stack ? ft_rot_ab_r(a, b, i) : ft_rot_a_r(a, b, i);
+			else if (ft_z(a) > a->stack)
+				ft_z(b) > ft_y(b) && ft_z(b) < b->stack ? ft_rot_ab_r(a, b, i) : ft_rot_a_r(a, b, i);
 		}
 	}
-	else if (last(b) < n_last(b))
+	else if (ft_z(b) < ft_y(b))
 		ft_swap_b_r(a, b, i);
-	else if (last(b) > n_last(b))
-		last(b) < b->stack ? ft_rot_b_r(a, b, i) : 0;
+	else if (ft_z(b) > ft_y(b))
+		ft_z(b) < b->stack ? ft_rot_b_r(a, b, i) : 0;
 }
 
 void		ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i)
@@ -222,6 +222,6 @@ void		ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i)
 
 	ft_calls_rev_rot(a, b, i);
 
-	// last(a) > n_last(a) && last(a) > a->stack ? ft_rev_rot_a_r(a, b, i) : 0;
+	// ft_z(a) > ft_y(a) && ft_z(a) > a->stack ? ft_rev_rot_a_r(a, b, i) : 0;
 
 }
