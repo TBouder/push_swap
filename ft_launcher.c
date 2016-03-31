@@ -6,38 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 19:22:11 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:06:48 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		ft_is_sorted(t_swap *swap)
-{
-	long	value;
-
-	value = swap->stack;
-	while (swap)
-	{
-		if (value >= swap->stack)
-			value = swap->stack;
-		else
-			return (0);
-		swap = swap->next;
-	}
-	return (1);
-}
-
-int		ft_is_null(t_swap *swap)
-{
-	while (swap)
-	{
-		if (swap->activ == 1)
-			return (0);
-		swap = swap->next;
-	}
-	return (1);
-}
 
 int		last(t_swap *swap)
 {
@@ -61,108 +34,95 @@ int		n_last(t_swap *swap)
 	return (tmp->stack);
 }
 
-void	ft_launcher(t_swap *a, t_swap *b)
+int		sorted_a(t_swap *swap)
+{
+	long	value;
+
+	value = swap->stack;
+	while (swap && swap->activ)
+	{
+		if (value >= swap->stack && swap->activ)
+			value = swap->stack;
+		else
+			return (0);
+		swap = swap->next;
+	}
+	// ft_putendl("SORTED");
+	return (1);
+}
+
+int		sorted_b(t_swap *swap)
+{
+	long	value;
+
+	value = swap->stack;
+	while (swap && swap->activ)
+	{
+		if (value <= swap->stack && swap->activ)
+			value = swap->stack;
+		else
+			return (0);
+		swap = swap->next;
+	}
+	// ft_putendl("SORTED");
+	return (1);
+}
+
+int		ft_swap_len(t_swap *swap)
 {
 	int		i;
 
 	i = 0;
-	while ((ft_is_sorted(a) == 0 || ft_is_null(b) == 0) && i < 50)
+	while (swap)
 	{
-		if (last(a) > n_last(a))
-		{
-			ft_putstr("sa : ");
-			sa(a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-		if (last(b) < n_last(b))
-		{
-			ft_putstr("sb : ");
-			sb(b);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-
-
-		if ((last(a) < n_last(a)) && (last(a) > a->stack))
-		{
-			ft_putstr("ra : ");
-			ra(a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-		if ((last(a) < n_last(a)) && (a->stack < a->next->stack))
-		{
-			ft_putstr("ra : ");
-			ra(a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-		if ((last(a) < n_last(a)) && (last(a) < a->stack))
-		{
-
-			ft_putstr("ra : ");
-			ra(a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-			ft_putstr("sb : ");
-			sb(b);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-			ft_putstr("pb : ");
-			pb(b, a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-
-
-
-
-		if ((last(a) < n_last(a)) && (last(a) < a->stack) && (ft_is_null(b)))
-		{
-			ft_putstr("pb : ");
-			pb(b, a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-
-		if ((last(a) < n_last(a)) && (last(a) < a->stack) && (last(b) < last(a)))
-		{
-			ft_putstr("pb : ");
-			pb(b, a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-
-		if ((last(a) < n_last(a)) && (last(a) < a->stack) && (last(b) > last(a)))
-		{
-			ft_putstr("pb : ");
-			pb(b, a);
-			ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		}
-
-		// if ((last(a) < n_last(a)) && (last(a) < a->stack) && ((last(a) > last(b))))
-		// {
-		// 	ft_putstr("pb : ");
-		// 	pb(b, a);
-		// 	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		// }
-		// if ((last(b) < last(a)) && (last(b) > a->stack))
-		// {
-		// 	ft_putstr("pa : ");
-		// 	pa(a, b);
-		// 	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		// }
-		//
-		//
-		// if ((last(a) < n_last(a)) && (last(a) > a->stack))
-		// {
-		// 	ft_putstr("ra : ");
-		// 	ra(a);
-		// 	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
-		// }
-
+		swap = swap->next;
 		i++;
 	}
+	return (i);
+}
 
+int		ft_rev_or_not(t_swap *swap)
+{
+	int		len;
+	int		o_len;
 
+	len = ft_swap_len(swap);
+	swap = swap->end;
+	while (swap && swap->activ == 0 && swap->prev)
+	{
+		swap = swap->prev;
+		len--;
+	}
+	o_len = len;
+	while (swap->prev)
+	{
+		if (swap->stack > swap->prev->stack)
+		{
+			if (len > o_len / 2 )
+				return (1);
+			else
+				return (0);
+		}
+		swap = swap->prev;
+		len--;
+	}
+	return (-1);
+}
 
-	ft_putchar('\n');ft_putchar('\n');
+int		ft_launcher(t_swap *a, t_swap *b)
+{
+	int		i;
 
-	ft_putstr("a : ");ft_print_swap(a);ft_putstr("\t||\tb : ");ft_print_swap(b);ft_putchar('\n');
-	ft_putstr("i : ");ft_nbrendl(i);
-
+	i = 0;
+	if (last(a) < n_last(a) && last(a) < a->stack)
+		ft_push_to_b_r(a, b, &i);
+	else if (last(a) < n_last(a) && last(a) > a->stack)
+		!ft_rev_or_not(a) ? ft_rot_a_r(a, b, &i) : ft_rev_rot_a_r(a, b, &i);
+	else if (last(a) > n_last(a))
+		ft_swap_a_r(a, b, &i);
+	else if (last(b) < n_last(b))
+		ft_swap_b_r(a, b, &i);
+	return (1);
 }
 
 // sa(a);
@@ -174,7 +134,6 @@ void	ft_launcher(t_swap *a, t_swap *b)
 // pb(b, a);
 // sb(b);
 // ra(a);
-
 // pb(b, a);
 // sb(b);
 // pa(a, b);

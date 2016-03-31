@@ -6,34 +6,31 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 17:33:43 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 11:26:51 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_swap(t_swap *a)
+static t_swap	*ft_end(t_swap *swap)
 {
-	if (a && a->next)
+	t_swap		*end;
+	t_swap		*start;
+
+	end = swap;
+	start = swap;
+	while (end->next)
+		end = end->next;
+	while (swap)
 	{
-		while (a->next)
-		{
-			if (a->activ)
-			{
-				ft_putnbr(a->stack);
-				ft_putchar(' ');
-			}
-			a = a->next;
-			if (a->next == NULL && a->activ)
-				ft_putnbr(a->stack);
-		}
+		swap->end = end;
+		swap->start = start;
+		swap = swap->next;
 	}
-	else if (a && a->next == NULL && a->activ)
-		ft_putnbr(a->stack);
-	// ft_putchar('\n');
+	return (swap);
 }
 
-void	ft_extract_stack(char **str, int len, t_swap **a)
+static void		ft_extract_stack(char **str, int len, t_swap **a)
 {
 	long	value;
 
@@ -46,12 +43,29 @@ void	ft_extract_stack(char **str, int len, t_swap **a)
 	}
 }
 
-void	ft_init_b(int len, t_swap **b)
+static void		ft_init_b(int len, t_swap **b)
 {
 	while (len > 0)
 	{
 		ft_swapend(b, 0, 0);
 		len--;
+	}
+}
+
+static void		ft_check_duplicates(t_swap *a)
+{
+	t_swap	*i;
+
+	while (a)
+	{
+		i = a->next;
+		while (i)
+		{
+			if (a->stack == i->stack)
+				ft_error();
+			i = i->next;
+		}
+		a = a->next;
 	}
 }
 
@@ -69,7 +83,6 @@ int		main(int ac, char **av)
 		ft_extract_stack(av, i, &a);
 		ft_check_duplicates(a);
 		ft_init_b(i, &b);
-
 		ft_end(a);
 		ft_end(b);
 

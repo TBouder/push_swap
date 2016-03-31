@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 16:41:34 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 18:22:18 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,43 @@ typedef struct		s_swap
 	struct s_swap	*prev;
 }					t_swap;
 
-void	ft_error();
+int		ft_launcher(t_swap *a, t_swap *b);
 
-void		ft_swapend(t_swap **swap, int value, int activ);
-t_swap		*ft_last(t_swap *a);
-t_swap		*ft_end(t_swap *swap);
 void		ft_print_swap(t_swap *a);
 
-
+/*Tools*/
+void	ft_error();
 int		ft_atoi_swap(const char *str);
 void	ft_check_min_man(long value);
-void	ft_check_duplicates(t_swap *a);
-void	ft_launcher(t_swap *a, t_swap *b);
-void	ft_push_front(t_swap *stack);
+int		ft_is_sorted(t_swap *swap);
+int		ft_is_null(t_swap *swap);
+
+/*Swap_struct*/
+void		ft_swapend(t_swap **swap, int value, int activ);
+void		ft_push_front(t_swap *stack);
+
+/*Launcher*/
+int			last(t_swap *swap);
+int			n_last(t_swap *swap);
+int			sorted_a(t_swap *swap);
+int			sorted_b(t_swap *swap);
+
+int		ft_rev_or_not(t_swap *swap);
+
+
+void	ft_swap_a_r(t_swap *a, t_swap *b, int *i);
+void	ft_swap_b_r(t_swap *a, t_swap *b, int *i);
+void	ft_swap_ab_r(t_swap *a, t_swap *b, int *i);
+
+void	ft_push_to_b_r(t_swap *a, t_swap *b, int *i);
+void	ft_push_to_a_r(t_swap *a, t_swap *b, int *i);
+
+void	ft_rot_a_r(t_swap *a, t_swap *b, int *i);
+void	ft_rot_b_r(t_swap *a, t_swap *b, int *i);
+void	ft_rot_ab_r(t_swap *a, t_swap *b, int *i);
+
+void	ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i);
+
 
 void	sa(t_swap *a);
 void	sb(t_swap *b);

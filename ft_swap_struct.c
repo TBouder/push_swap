@@ -6,29 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:45:38 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 16:41:24 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 11:27:31 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_swap			*ft_end(t_swap *swap)
-{
-	t_swap		*end;
-	t_swap		*start;
-
-	end = swap;
-	start = swap;
-	while (end->next)
-		end = end->next;
-	while (swap)
-	{
-		swap->end = end;
-		swap->start = start;
-		swap = swap->next;
-	}
-	return (swap);
-}
 
 static t_swap	*ft_swapnew(int value, t_swap *prev, int activ)
 {
@@ -63,4 +45,30 @@ void			ft_swapend(t_swap **swap, int value, int activ)
 	}
 	else
 		*swap = ft_swapnew(value, NULL, activ);
+}
+
+void	ft_push_front(t_swap *stack)
+{
+	t_swap	*end;
+
+	while (stack->next)
+	{
+		if (stack->activ == 0)
+		{
+			end = stack;
+			while (end)
+			{
+				if (end->activ == 1)
+				{
+					stack->activ = 1;
+					stack->stack = end->stack;
+					end->activ = 0;
+					end->stack = 0;
+				}
+				else
+					end = end->next;
+			}
+		}
+		stack = stack->next;
+	}
 }

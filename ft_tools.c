@@ -6,11 +6,34 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/30 14:12:48 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/03/31 13:04:55 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_print_swap(t_swap *a)
+{
+	if (a && a->next)
+	{
+		while (a->next)
+		{
+			if (a->activ)
+			{
+				ft_putnbr(a->stack);
+				ft_putchar(' ');
+			}
+			a = a->next;
+			if (a->next == NULL && a->activ)
+				ft_putnbr(a->stack);
+		}
+	}
+	else if (a && a->next == NULL && a->activ)
+		ft_putnbr(a->stack);
+	// ft_putchar('\n');
+}
+
+/*----------------------*/
 
 void	ft_error()
 {
@@ -48,45 +71,29 @@ void	ft_check_min_man(long value)
 		ft_error();
 }
 
-void	ft_check_duplicates(t_swap *a)
+int		ft_is_sorted(t_swap *swap)
 {
-	t_swap	*i;
+	long	value;
 
-	while (a)
+	value = swap->stack;
+	while (swap)
 	{
-		i = a->next;
-		while (i)
-		{
-			if (a->stack == i->stack)
-				ft_error();
-			i = i->next;
-		}
-		a = a->next;
+		if (value >= swap->stack)
+			value = swap->stack;
+		else
+			return (0);
+		swap = swap->next;
 	}
+	return (1);
 }
 
-void	ft_push_front(t_swap *stack)
+int		ft_is_null(t_swap *swap)
 {
-	t_swap	*end;
-
-	while (stack->next)
+	while (swap)
 	{
-		if (stack->activ == 0)
-		{
-			end = stack;
-			while (end)
-			{
-				if (end->activ == 1)
-				{
-					stack->activ = 1;
-					stack->stack = end->stack;
-					end->activ = 0;
-					end->stack = 0;
-				}
-				else
-					end = end->next;
-			}
-		}
-		stack = stack->next;
+		if (swap->activ == 1)
+			return (0);
+		swap = swap->next;
 	}
+	return (1);
 }
