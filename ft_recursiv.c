@@ -6,14 +6,16 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/31 19:44:52 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 12:12:04 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 
 void	ft_success(t_swap *a, t_swap *b, int *i)
 {
+	free(a);
+	free(b);
 	ft_putstr("i : ");ft_nbrendl(*i);ft_putstr("\n\n");
 	exit(EXIT_SUCCESS);
 }

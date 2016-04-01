@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 // pa : push a - prend le premier élément au sommet de b et le met sur a. (ne fait rien si b est vide).
 // pb : push b - prend le premier élément au sommet de a et le met sur b. (ne fait rien si a est vide).
 

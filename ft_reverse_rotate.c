@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 // rra : reverse rotate a (vers le bas, le dernier élément devient le premier).
 // rrb : reverse rotate b (vers le bas, le dernier élément devient le premier).
 // rrr : rra et rrb en même temps.
