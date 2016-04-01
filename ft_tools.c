@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 15:21:29 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 15:57:33 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_atoi_swap(const char *str)
 
 void	ft_check_min_man(long value)
 {
-	if (value > 2147483647 || value <= -2147483648)
+	if ((int)value > 2147483647 || (int)value <= -2147483648)
 		ft_error();
 }
 
