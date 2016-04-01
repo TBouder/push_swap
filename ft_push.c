@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 17:25:20 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 18:13:33 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_push_to_b_r(t_swap *a, t_swap *b, int *i)
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
 	if (ft_sorted_a(a))
-		ft_push_to_a_r(a, b, i);
+		ft_push_to_a_r(a, b, i); /*ICI MODIF REQUISE SANS DOUTE : 15 14 13 6 4 9 8 5 7 0*/
 	else
 	{
 		ft_putstr("pb : ");
