@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 17:24:40 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 17:46:24 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	ft_rot_ab_r(t_swap *a, t_swap *b, int *i);
 void	ft_calls_rot(t_swap *a, t_swap *b, int *i);
 
 void	ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i);
+void	ft_rev_rot_ab_r(t_swap *a, t_swap *b, int *i);
 void	ft_calls_rev_rot(t_swap *a, t_swap *b, int *i);
 
 
