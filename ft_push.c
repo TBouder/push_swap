@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/31 19:47:30 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 17:25:20 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,29 @@ void	pa(t_swap *a, t_swap *b)
 	}
 }
 
-void	pb(t_swap *a, t_swap *b)
+void	ft_push_to_b_r(t_swap *a, t_swap *b, int *i)
 {
-	int		temp;
-	t_swap	*end_a;
-	t_swap	*end_b;
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	end_a = a->end;
-	end_b = b->end;
-	while (end_b && end_b->activ == 0)
-		end_b = end_b->prev;
-	if (end_a != NULL && end_b != NULL && end_b->activ)
+	if (ft_sorted_a(a))
+		ft_push_to_a_r(a, b, i);
+	else
 	{
-		temp = end_b->stack;
-		if (end_a->activ == 0)
-		{
-			while (end_a->prev && end_a->prev->activ == 0)
-				end_a = end_a->prev;
-		}
-		end_a->activ = 1;
-		end_a->stack = temp;
-		end_b->activ = 0;
-		end_b->stack = 0;
+		ft_putstr("pb : ");
+		pa(b, a);
+		ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+		*i += 1;
 	}
+	ft_calls_push(a, b, i);
+}
+
+void	ft_push_to_a_r(t_swap *a, t_swap *b, int *i)
+{
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
+
+	ft_putstr("pa : ");
+	pa(a, b);
+	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	*i += 1;
+	ft_calls_push(a, b, i);
 }

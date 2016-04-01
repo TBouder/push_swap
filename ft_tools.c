@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 16:05:52 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 17:08:34 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_error()
 	exit(EXIT_FAILURE);
 }
 
-int		ft_atoi_swap(const char *str)
+long		ft_atoi_swap(const char *str)
 {
 	long	result;
 	int		sign;
@@ -44,11 +44,8 @@ int		ft_atoi_swap(const char *str)
 
 void	ft_check_min_man(long value)
 {
-	if ((int)value > 2147483647 || (int)value <= -2147483648)
-	{
-		ft_putendl("HI");
+	if (value > 2147483647 || value <= -2147483648)
 		ft_error();
-	}
 }
 
 int		ft_is_sorted(t_swap *swap)

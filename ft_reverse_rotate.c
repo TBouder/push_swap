@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/31 19:49:35 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 17:25:47 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,32 +39,20 @@ void	rra(t_swap *a)
 	ft_push_front(a->start);
 }
 
-void	rrb(t_swap *b)
-{
-	int		first;
-	int		activ;
-
-	b = b->end;
-	while (b->activ == 0)
-		b = b->prev;
-	if (b)
-	{
-		first = b->stack;
-		activ = b->activ;
-	}
-	while (b->prev)
-	{
-		b->stack = b->prev->stack;
-		b->activ = b->prev->activ;
-		b = b->prev;
-	}
-	b->stack = first;
-	b->activ = activ;
-	ft_push_front(b->start);
-}
-
 void	rrr(t_swap *a, t_swap *b)
 {
 	rra(a);
-	rrb(b);
+	rra(b);
+}
+
+void		ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i)
+{
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
+
+	ft_putstr("rra : ");
+	rra(a);
+	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	*i += 1;
+
+	ft_calls_rev_rot(a, b, i);
 }
