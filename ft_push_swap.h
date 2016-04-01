@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/31 19:51:37 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/01 13:52:55 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct		s_swap
 {
