@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 12:10:56 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:15:10 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int		ft_sorted_a(t_swap *swap)
 			return (0);
 		swap = swap->next;
 	}
-	// ft_putendl("SORTED");
 	return (1);
 }
 

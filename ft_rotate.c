@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 17:25:28 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:10:58 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	ft_rot_a_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("ra : ");
+	ft_printf("{g}ra{0}\n");
 	ra(a);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 	ft_calls_rot(a, b, i);
 }
@@ -60,9 +60,9 @@ void	ft_rot_b_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("rb : ");
+	ft_printf("{g}rb{0}\n");
 	ra(b);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 	ft_calls_rot(a, b, i);
 }
@@ -71,9 +71,9 @@ void	ft_rot_ab_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("rr : ");
+	ft_printf("{g}rr{0}\n");
 	rr(a, b);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 	ft_calls_rot(a, b, i);
 }

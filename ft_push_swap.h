@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 17:46:24 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:14:19 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ typedef struct		s_swap
 	struct s_swap	*next;
 	struct s_swap	*prev;
 }					t_swap;
+
+typedef struct		s_flag
+{
+	int				verbose;
+}					t_flag;
 
 int		ft_launcher(t_swap *a, t_swap *b);
 
@@ -48,10 +53,12 @@ int		ft_swaprev(t_swap *swap);
 
 
 /*Launcher*/
-int			ft_z(t_swap *swap);
-int			ft_y(t_swap *swap);
-int			ft_sorted_a(t_swap *swap);
+int		ft_z(t_swap *swap);
+int		ft_y(t_swap *swap);
+int		ft_sorted_a(t_swap *swap);
 
+/*Flags*/
+void	ft_flag_v(t_swap *a, t_swap *b);
 
 
 void	ft_swap_a_r(t_swap *a, t_swap *b, int *i);

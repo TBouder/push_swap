@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 13:39:48 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:24:25 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,27 @@ static t_swap	*ft_end(t_swap *swap)
 	return (swap);
 }
 
-static void		ft_extract_stack(char **str, int len, t_swap **a)
+static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
 {
 	long	value;
+	flg->verbose = 0;
 
+	if (ft_strcmp(str[len], "-v") == 1)
+	{
+		ft_putendl("HELLO");
+		flg->verbose = 1;
+		len--;
+	}
 	while (len > 0)
 	{
+		ft_printf("MOP : %d\n", flg->verbose);
+
 		value = ft_atoi_swap(str[len]);
 		ft_check_min_man(value);
 		ft_swapend(a, value, 1);
 		len--;
 	}
+
 }
 
 static void		ft_init_b(int len, t_swap **b)
@@ -72,6 +82,7 @@ static void		ft_check_duplicates(t_swap *a)
 int		main(int ac, char **av)
 {
 	int		i;
+	t_flag	flg;
 	t_swap	*a;
 	t_swap	*b;
 
@@ -82,7 +93,7 @@ int		main(int ac, char **av)
 		ft_error();
 	else
 	{
-		ft_extract_stack(av, i, &a);
+		ft_extract_stack(av, i, &a, &flg);
 		ft_check_duplicates(a);
 		ft_init_b(i, &b);
 		ft_end(a);

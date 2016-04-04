@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/02 15:33:10 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:11:02 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	ft_swap_a_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("sa : ");
+	ft_printf("{g}sa{0}\n");
 	sa(a);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 	ft_calls_swap(a, b, i);
 }
@@ -56,9 +56,9 @@ void	ft_swap_b_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("sb : ");
+	ft_printf("{g}sb{0}\n");
 	sa(b);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 	ft_calls_swap(a, b, i);
 }
@@ -67,9 +67,9 @@ void	ft_swap_ab_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("ss : ");
+	ft_printf("{g}ss{0}\n");
 	ss(a, b);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 	ft_calls_swap(a, b, i);
 }

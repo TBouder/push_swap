@@ -6,7 +6,7 @@
 #    By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 15:48:47 by tbouder           #+#    #+#              #
-#    Updated: 2016/04/01 16:58:30 by tbouder          ###   ########.fr        #
+#    Updated: 2016/04/04 10:21:04 by tbouder          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC			= 	gcc
 CFLAGS		= 	-Wall -Werror -Wextra -g
 
 SRC 		= 	ft_push_swap.c ft_launcher.c ft_recursiv.c \
-				ft_tools.c ft_swap_struct.c \
+				ft_tools.c ft_swap_struct.c ft_flags.c\
 				ft_push.c ft_swap.c ft_rotate.c ft_reverse_rotate.c \
 
 LIB			=	-Lft_printf -lftprintf

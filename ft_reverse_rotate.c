@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 17:46:28 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:10:52 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void		ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("rra : ");
+	ft_printf("{g}rra{0}\n");
 	rra(a);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 
 	ft_calls_rev_rot(a, b, i);
@@ -61,9 +61,9 @@ void		ft_rev_rot_ab_r(t_swap *a, t_swap *b, int *i)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_putstr("rrr : ");
+	ft_printf("{g}rrr{0}\n");
 	rrr(a, b);
-	ft_putstr("\t");ft_print_swap(a);ft_putstr("\t||\t");ft_print_swap(b);ft_putchar('\n');
+	ft_flag_v(a, b);
 	*i += 1;
 
 	ft_calls_rev_rot(a, b, i);
