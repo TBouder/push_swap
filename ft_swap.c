@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 12:21:47 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 12:26:26 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_swap_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	flg.verbose ? ft_printf("{g}sa{0}") : ft_printf("{g}sa{0} ");
+	flg.verbose ? ft_printf("{c}sa{0}\n") : ft_printf("{c}sa{0} ");
 	sa(a);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
@@ -51,7 +51,7 @@ void	ft_swap_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	flg.verbose ? ft_printf("{g}sb{0}") : ft_printf("{g}sb{0} ");
+	flg.verbose ? ft_printf("{b}sb{0}\n") : ft_printf("{b}sb{0} ");
 	sa(b);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
@@ -62,7 +62,7 @@ void	ft_swap_ab_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	flg.verbose ? ft_printf("{g}ss{0}") : ft_printf("{g}ss{0} ");
+	flg.verbose ? ft_printf("{y}ss{0}\n") : ft_printf("{y}ss{0} ");
 	ss(a, b);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
