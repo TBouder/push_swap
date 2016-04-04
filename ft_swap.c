@@ -36,7 +36,7 @@ void	ss(t_swap *a, t_swap *b)
 	sa(b);
 }
 
-void	ft_swap_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
+void	ft_rs_a(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
@@ -50,7 +50,7 @@ void	ft_swap_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 	ft_calls_swap(a, b, i, flg);
 }
 
-void	ft_swap_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
+void	ft_rs_b(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
@@ -64,7 +64,7 @@ void	ft_swap_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 	ft_calls_swap(a, b, i, flg);
 }
 
-void	ft_swap_ab_r(t_swap *a, t_swap *b, int *i, t_flag flg)
+void	ft_rs_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 

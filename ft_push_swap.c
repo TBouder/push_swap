@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 14:14:42 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 14:36:13 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 /*
 ** Bonus
-** - -v for verbose mode
-** - -c for color mode
-** - -o for number of operation
+** -v for verbose mode
+** -c for color mode
+** -o for number of operation
+** -i for infos (Starting & ending a stack)
 */
 
 static t_swap	*ft_end(t_swap *swap)
@@ -114,7 +115,12 @@ int		main(int ac, char **av)
 		ft_end(a);
 		ft_end(b);
 
-		ft_putstr("s : ");ft_print_swap(a);ft_putchar('\n');ft_putchar('\n');
+		if (flg.infos)
+		{
+			ft_putstr("Starting stack : ");
+			ft_print_swap(a);
+			ft_putendl("\n");
+		}
 		ft_launcher(a, b, flg);
 	}
 	return (0);

@@ -42,7 +42,7 @@ void	rrr(t_swap *a, t_swap *b)
 	rra(b);
 }
 
-void		ft_rev_rot_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
+void		ft_rrr_a(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
@@ -72,7 +72,7 @@ void		ft_rev_rot_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 	ft_calls_rev_rot(a, b, i, flg);
 }
 
-void		ft_rev_rot_ab_r(t_swap *a, t_swap *b, int *i, t_flag flg)
+void		ft_rrr_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
