@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:17:17 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 16:25:33 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 ** -c for color mode
 ** -o for number of operation
 ** -i for infos (Starting & ending a stack)
+** -a for all (SOON)
+** Add possibility of -vcoi instead of -v -c -o -i (SOON)
 */
 
 static t_swap	*ft_end(t_swap *swap)
