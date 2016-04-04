@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 11:26:28 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 12:20:29 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void		ft_calls_swap(t_swap *a, t_swap *b, int *i, t_flag flg)
 			else if (ft_z(b) > a->stack)
 				ft_push_to_a_r(a, b, i, flg);
 			else
-				!ft_swaprev(a) ? ft_rot_a_r(a, b, i, flg) : ft_rev_rot_a_r(a, b, i, flg);
-				// ft_rot_a_r(a, b, i, flg);
+				// !ft_swaprev(a) ? ft_rot_a_r(a, b, i, flg) : ft_rev_rot_a_r(a, b, i, flg);
+				ft_rot_a_r(a, b, i, flg);
 		}
 		else
 			ft_push_to_b_r(a, b, i, flg);

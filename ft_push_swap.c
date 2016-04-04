@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 11:36:25 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 12:00:23 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void		ft_check_duplicates(t_swap *a)
 		a = a->next;
 	}
 }
-#include <stdio.h>
+
 int		main(int ac, char **av)
 {
 	int		i;

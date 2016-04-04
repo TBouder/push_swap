@@ -6,14 +6,14 @@
 #    By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 15:48:47 by tbouder           #+#    #+#              #
-#    Updated: 2016/04/04 11:53:44 by tbouder          ###   ########.fr        #
+#    Updated: 2016/04/04 12:00:33 by tbouder          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= 	libftprintf.a
 
 CC			= 	gcc
-CFLAGS		= 	-Wall -Werror -Wextra -g
+CFLAGS		= 	-Wall -Werror -Wextra
 
 PRINTF 		= 	ft_printf.c
 
