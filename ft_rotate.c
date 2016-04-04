@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 12:25:32 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 14:05:20 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ void	rr(t_swap *a, t_swap *b)
 
 void	ft_rot_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
-	flg.verbose ? ft_printf("{c}ra{0}\n") : ft_printf("{c}ra{0} ");
+	if (flg.color)
+		flg.verbose ? ft_printf("{c}ra{0}\n") : ft_printf("{c}ra{0} ");
+	else
+		flg.verbose ? ft_printf("ra\n") : ft_printf("ra ");
 	ra(a);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
@@ -54,9 +57,12 @@ void	ft_rot_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 
 void	ft_rot_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
-	flg.verbose ? ft_printf("{b}rb{0}\n") : ft_printf("{b}rb{0} ");
+	if (flg.color)
+		flg.verbose ? ft_printf("{b}rb{0}\n") : ft_printf("{b}rb{0} ");
+	else
+		flg.verbose ? ft_printf("rb\n") : ft_printf("rb ");
 	ra(b);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
@@ -65,9 +71,12 @@ void	ft_rot_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 
 void	ft_rot_ab_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
-	flg.verbose ? ft_printf("{y}rr{0}\n") : ft_printf("{y}rr{0} ");
+	if (flg.color)
+		flg.verbose ? ft_printf("{y}rr{0}\n") : ft_printf("{y}rr{0} ");
+	else
+		flg.verbose ? ft_printf("rr\n") : ft_printf("rr ");
 	rr(a, b);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;

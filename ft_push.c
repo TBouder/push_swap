@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 12:24:46 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 14:05:29 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ void	pa(t_swap *a, t_swap *b)
 
 void	ft_push_to_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 
 	if (ft_sorted_a(a))
 		ft_push_to_a_r(a, b, i, flg); /*ICI MODIF REQUISE SANS DOUTE : 15 14 13 6 4 9 8 5 7 0*/
 	else
 	{
-		flg.verbose ? ft_printf("{b}pb{0}\n") : ft_printf("{b}pb{0} ");
+		if (flg.color)
+			flg.verbose ? ft_printf("{b}pb{0}\n") : ft_printf("{b}pb{0} ");
+		else
+			flg.verbose ? ft_printf("pb\n") : ft_printf("pb ");
 		pa(b, a);
 		flg.verbose ? ft_flag_v(a, b) : 0;
 		*i += 1;
@@ -55,9 +58,11 @@ void	ft_push_to_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 
 void	ft_push_to_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
-
-	flg.verbose ? ft_printf("{c}pa{0}\n") : ft_printf("{c}pa{0} ");
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
+	if (flg.color)
+		flg.verbose ? ft_printf("{c}pa{0}\n") : ft_printf("{c}pa{0} ");
+	else
+		flg.verbose ? ft_printf("pa\n") : ft_printf("pa ");
 	pa(a, b);
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 11:54:23 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 14:04:50 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct		s_swap
 typedef struct		s_flag
 {
 	int				verbose;
+	int				color;
+	int				ope;
 }					t_flag;
 
 int		ft_launcher(t_swap *a, t_swap *b, t_flag flg);
@@ -43,7 +45,7 @@ long	ft_atoi_swap(const char *str);
 void	ft_check_min_man(long value);
 int		ft_is_sorted(t_swap *swap);
 int		ft_is_null(t_swap *swap);
-void	ft_success(t_swap *a, t_swap *b, int *i);
+void	ft_success(t_swap *a, t_swap *b, int *i, t_flag flg);
 
 
 /*Swap_struct*/

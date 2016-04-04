@@ -6,19 +6,20 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 12:20:29 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 14:04:21 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_success(t_swap *a, t_swap *b, int *i)
+void	ft_success(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	a = NULL;
 	b = NULL;
 	free(a);
 	free(b);
-	ft_printf("\n\nNumber of operations : %d\n", *i);
+	if (flg.ope == 1)
+		ft_printf("\n\nNumber of operations : %d\n", *i);
 	exit(EXIT_SUCCESS);
 }
 
