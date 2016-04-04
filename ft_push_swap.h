@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 14:28:51 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 14:49:38 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_flag
 	int				color;
 	int				ope;
 	int				infos;
+	int				total_mod;
 }					t_flag;
 
 int		ft_launcher(t_swap *a, t_swap *b, t_flag flg);
