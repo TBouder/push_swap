@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 16:02:47 by tbouder           #+#    #+#             */
-/*   Updated: 2016/03/29 16:14:21 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 11:53:50 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ static int		ft_undef(const char *str, int i)
 static int		ft_color(const char *str, int *index)
 {
 	if (str[*index + 1] == 'b' && str[*index + 2] == '}')
-		ft_putstr("\033[34;01m");
+		write(1, "\033[34;01m", 8);
 	else if (str[*index + 1] == 'r' && str[*index + 2] == '}')
-		ft_putstr("\033[31;01m");
+		write(1, "\033[31;01m", 8);
 	else if (str[*index + 1] == 'g' && str[*index + 2] == '}')
-		ft_putstr("\033[32;01m");
+		write(1, "\033[32;01m", 8);
 	else if (str[*index + 1] == 'y' && str[*index + 2] == '}')
-		ft_putstr("\033[33;01m");
+		write(1, "\033[33;01m", 8);
 	else if (str[*index + 1] == 'p' && str[*index + 2] == '}')
-		ft_putstr("\033[35;01m");
+		write(1, "\033[35;01m", 8);
 	else if (str[*index + 1] == 'c' && str[*index + 2] == '}')
-		ft_putstr("\033[36;01m");
+		write(1, "\033[36;01m", 8);
 	else if (str[*index + 1] == 'w' && str[*index + 2] == '}')
-		ft_putstr("\033[37;01m");
+		write(1, "\033[37;01m", 8);
 	else if (str[*index + 1] == '0' && str[*index + 2] == '}')
-		ft_putstr("\033[00m");
+		write(1, "\033[00m", 5);
 	else
 	{
 		index += 1;
