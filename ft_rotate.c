@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 10:10:58 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:52:32 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,35 +45,35 @@ void	rr(t_swap *a, t_swap *b)
 	ra(b);
 }
 
-void	ft_rot_a_r(t_swap *a, t_swap *b, int *i)
+void	ft_rot_a_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_printf("{g}ra{0}\n");
+	flg.verbose ? ft_printf("{g}ra{0}\n") : ft_printf("{g}ra{0} \0");
 	ra(a);
-	ft_flag_v(a, b);
+	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
-	ft_calls_rot(a, b, i);
+	ft_calls_rot(a, b, i, flg);
 }
 
-void	ft_rot_b_r(t_swap *a, t_swap *b, int *i)
+void	ft_rot_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_printf("{g}rb{0}\n");
+	flg.verbose ? ft_printf("{g}rb{0}\n") : ft_printf("{g}rb{0} \0");
 	ra(b);
-	ft_flag_v(a, b);
+	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
-	ft_calls_rot(a, b, i);
+	ft_calls_rot(a, b, i, flg);
 }
 
-void	ft_rot_ab_r(t_swap *a, t_swap *b, int *i)
+void	ft_rot_ab_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i) : 0;
 
-	ft_printf("{g}rr{0}\n");
+	flg.verbose ? ft_printf("{g}rr{0}\n") : ft_printf("{g}rr{0} \0");
 	rr(a, b);
-	ft_flag_v(a, b);
+	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
-	ft_calls_rot(a, b, i);
+	ft_calls_rot(a, b, i, flg);
 }

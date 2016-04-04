@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 10:15:10 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:46:26 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,18 @@ int		ft_sorted_a(t_swap *swap)
 	return (1);
 }
 
-int		ft_launcher(t_swap *a, t_swap *b)
+int		ft_launcher(t_swap *a, t_swap *b, t_flag flg)
 {
 	int		i;
 
 	i = 0;
 	if (ft_z(a) < ft_y(a) && ft_z(a) < a->stack)
-		ft_push_to_b_r(a, b, &i);
+		ft_push_to_b_r(a, b, &i, flg);
 	else if (ft_z(a) < ft_y(a) && ft_z(a) > a->stack)
-		!ft_swaprev(a) ? ft_rot_a_r(a, b, &i) : ft_rev_rot_a_r(a, b, &i);
+		!ft_swaprev(a) ? ft_rot_a_r(a, b, &i, flg) : ft_rev_rot_a_r(a, b, &i, flg);
 	else if (ft_z(a) > ft_y(a))
-		ft_swap_a_r(a, b, &i);
+		ft_swap_a_r(a, b, &i, flg);
 	else if (ft_z(b) < ft_y(b))
-		ft_swap_b_r(a, b, &i);
+		ft_swap_b_r(a, b, &i, flg);
 	return (1);
 }
