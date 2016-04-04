@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 10:45:18 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 10:56:34 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_success(t_swap *a, t_swap *b, int *i)
 	b = NULL;
 	free(a);
 	free(b);
-	ft_putstr("i : ");ft_nbrendl(*i);ft_putstr("\n\n");
+	ft_printf("\n\nNumber of operations : %d\n", *i);
 	exit(EXIT_SUCCESS);
 }
 

@@ -6,16 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 10:52:35 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 11:01:42 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-// sa : swap a - intervertit les 2 premiers éléments au sommet de la pile a.
-// (ne fait rien s’il n’y en a qu’un ou aucun).
-// sb : swap b - intervertit les 2 premiers éléments au sommet de la pile b.
-// (ne fait rien s’il n’y en a qu’un ou aucun).
-// ss : sa et sb en même temps.
 
 void	sa(t_swap *swap)
 {

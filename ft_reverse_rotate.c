@@ -6,14 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 10:52:28 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 11:01:35 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-// rra : reverse rotate a (vers le bas, le dernier élément devient le premier).
-// rrb : reverse rotate b (vers le bas, le dernier élément devient le premier).
-// rrr : rra et rrb en même temps.
 
 void	rra(t_swap *a)
 {
