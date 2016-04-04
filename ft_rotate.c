@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 14:28:51 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 16:19:06 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	rr(t_swap *a, t_swap *b)
 void	ft_rr_a(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
-
 	if (flg.color)
 		flg.verbose ? ft_printf("{c}ra{0}\n") : ft_printf("{c}ra{0} ");
 	else
@@ -58,7 +57,6 @@ void	ft_rr_a(t_swap *a, t_swap *b, int *i, t_flag flg)
 void	ft_rr_b(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
-
 	if (flg.color)
 		flg.verbose ? ft_printf("{b}rb{0}\n") : ft_printf("{b}rb{0} ");
 	else
@@ -72,7 +70,6 @@ void	ft_rr_b(t_swap *a, t_swap *b, int *i, t_flag flg)
 void	ft_rr_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
-
 	if (flg.color)
 		flg.verbose ? ft_printf("{y}rr{0}\n") : ft_printf("{y}rr{0} ");
 	else

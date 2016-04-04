@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 14:57:41 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 16:17:17 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,10 @@ static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
 	long	value;
 	int		i;
 
-	flg->verbose = 0;
-	flg->color = 0;
-	flg->ope = 0;
-	flg->infos = 0;
-	flg->total_mod = 0;
 	i = 1;
-	while (str[i] && (ft_strcmp(str[i], "-v") == 0 || ft_strcmp(str[i], "-c") == 0
-		|| ft_strcmp(str[i], "-o") == 0 || ft_strcmp(str[i], "-i") == 0))
+	ft_init_flag(flg);
+	while (str[i] && (!ft_strcmp(str[i], "-v") || !ft_strcmp(str[i], "-c")
+		|| !ft_strcmp(str[i], "-o") || !ft_strcmp(str[i], "-i")))
 	{
 		ft_strcmp(str[i], "-v") == 0 ? flg->verbose = 1 : 0;
 		ft_strcmp(str[i], "-c") == 0 ? flg->color = 1 : 0;
@@ -94,7 +90,7 @@ static void		ft_check_duplicates(t_swap *a)
 	}
 }
 
-int		main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	int		i;
 	t_flag	flg;
@@ -115,13 +111,8 @@ int		main(int ac, char **av)
 		ft_init_b(i - flg.total_mod, &b);
 		ft_end(a);
 		ft_end(b);
-
 		if (flg.infos)
-		{
-			ft_putstr("Starting stack : ");
-			ft_print_swap(a);
-			ft_putendl("\n");
-		}
+			ft_print_infos(a);
 		ft_launcher(a, b, flg);
 	}
 	return (0);

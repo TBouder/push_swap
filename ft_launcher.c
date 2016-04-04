@@ -6,31 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 14:28:35 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 16:08:33 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-void	ft_print_swap(t_swap *a)
-{
-	if (a && a->next)
-	{
-		while (a->next)
-		{
-			if (a->activ)
-			{
-				ft_putnbr(a->stack);
-				ft_putchar(' ');
-			}
-			a = a->next;
-			if (a->next == NULL && a->activ)
-				ft_putnbr(a->stack);
-		}
-	}
-	else if (a && a->next == NULL && a->activ)
-		ft_putnbr(a->stack);
-}
 
 int		ft_z(t_swap *swap)
 {

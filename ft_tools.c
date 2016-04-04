@@ -6,19 +6,19 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/01 17:08:34 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 16:20:11 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_error()
+void	ft_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	exit(EXIT_FAILURE);
 }
 
-long		ft_atoi_swap(const char *str)
+long	ft_atoi_swap(const char *str)
 {
 	long	result;
 	int		sign;
