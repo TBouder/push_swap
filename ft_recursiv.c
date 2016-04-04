@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 10:56:34 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/04 11:23:06 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_success(t_swap *a, t_swap *b, int *i)
 {
+	ft_putendl("END");
 	a = NULL;
 	b = NULL;
 	free(a);
@@ -68,6 +69,8 @@ void		ft_calls_push(t_swap *a, t_swap *b, int *i, t_flag flg)
 	}
 	else if (ft_z(b) > ft_y(b) && ft_z(b) < b->stack)
 		ft_rot_b_r(a, b, i, flg);
+	else if (ft_z(b) < ft_y(b) && ft_z(b) < b->stack)
+		ft_rev_rot_b_r(a, b, i, flg);
 	else if (ft_z(b) < ft_y(b))
 		ft_swap_b_r(a, b, i, flg);
 }
