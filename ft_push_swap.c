@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:25:33 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:13:14 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,22 +75,7 @@ static void		ft_init_b(int len, t_swap **b)
 	}
 }
 
-static void		ft_check_duplicates(t_swap *a)
-{
-	t_swap	*i;
 
-	while (a)
-	{
-		i = a->next;
-		while (i)
-		{
-			if (a->stack == i->stack)
-				ft_error();
-			i = i->next;
-		}
-		a = a->next;
-	}
-}
 
 int				main(int ac, char **av)
 {
@@ -107,14 +92,13 @@ int				main(int ac, char **av)
 	else
 	{
 		ft_extract_stack(av, i, &a, &flg);
-		if (i == flg.total_mod)
-			ft_error();
+		i == flg.total_mod ? ft_error() : 0;
 		ft_check_duplicates(a);
 		ft_init_b(i - flg.total_mod, &b);
 		ft_end(a);
 		ft_end(b);
-		if (flg.infos)
-			ft_print_infos(a);
+		flg.infos ? ft_print_infos(a) : 0;
+		a->next == NULL ? ft_exit_one_nb(a, flg) : 0;
 		ft_launcher(a, b, flg);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:18:55 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:12:43 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ typedef struct		s_flag
 int					ft_launcher(t_swap *a, t_swap *b, t_flag flg);
 
 void				ft_print_swap(t_swap *a);
-
-void				ft_error();
+void				ft_check_duplicates(t_swap *a);
 long				ft_atoi_swap(const char *str);
 void				ft_check_min_man(long value);
 int					ft_is_sorted(t_swap *swap);
 int					ft_is_null(t_swap *swap);
+
+void				ft_error(void);
 void				ft_success(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_exit_one_nb(t_swap *a, t_flag flg);
+
 
 void				ft_swapend(t_swap **swap, int value, int activ);
 void				ft_push_front(t_swap *stack);

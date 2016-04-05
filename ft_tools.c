@@ -6,17 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:20:11 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 13:58:00 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-void	ft_error(void)
-{
-	ft_putendl_fd("Error", 2);
-	exit(EXIT_FAILURE);
-}
 
 long	ft_atoi_swap(const char *str)
 {
@@ -48,29 +42,19 @@ void	ft_check_min_man(long value)
 		ft_error();
 }
 
-int		ft_is_sorted(t_swap *swap)
+void	ft_check_duplicates(t_swap *a)
 {
-	long	value;
+	t_swap	*i;
 
-	value = swap->stack;
-	while (swap)
+	while (a)
 	{
-		if (value >= swap->stack)
-			value = swap->stack;
-		else
-			return (0);
-		swap = swap->next;
+		i = a->next;
+		while (i)
+		{
+			if (a->stack == i->stack)
+				ft_error();
+			i = i->next;
+		}
+		a = a->next;
 	}
-	return (1);
-}
-
-int		ft_is_null(t_swap *swap)
-{
-	while (swap)
-	{
-		if (swap->activ == 1)
-			return (0);
-		swap = swap->next;
-	}
-	return (1);
 }

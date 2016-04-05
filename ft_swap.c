@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:19:17 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:10:54 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	ft_rs_b(t_swap *a, t_swap *b, int *i, t_flag flg)
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
 	ft_calls_swap(a, b, i, flg);
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 }
 
 void	ft_rs_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
@@ -73,4 +74,5 @@ void	ft_rs_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
 	ft_calls_swap(a, b, i, flg);
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 }

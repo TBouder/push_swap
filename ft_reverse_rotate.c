@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:19:45 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:10:49 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_rrr_a(t_swap *a, t_swap *b, int *i, t_flag flg)
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
 	ft_calls_rev_rot(a, b, i, flg);
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 }
 
 void	ft_rev_rot_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
@@ -66,6 +67,7 @@ void	ft_rev_rot_b_r(t_swap *a, t_swap *b, int *i, t_flag flg)
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
 	ft_calls_rev_rot(a, b, i, flg);
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 }
 
 void	ft_rrr_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
@@ -79,4 +81,5 @@ void	ft_rrr_ab(t_swap *a, t_swap *b, int *i, t_flag flg)
 	flg.verbose ? ft_flag_v(a, b) : 0;
 	*i += 1;
 	ft_calls_rev_rot(a, b, i, flg);
+	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, i, flg) : 0;
 }
