@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 10:14:47 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/04 16:27:35 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 15:35:14 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	ft_init_flag(t_flag *flg)
 	flg->ope = 0;
 	flg->infos = 0;
 	flg->total_mod = 0;
+	flg->cnt = 0;
 }

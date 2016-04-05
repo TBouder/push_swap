@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 14:43:02 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 15:42:30 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_flag
 	int				ope;
 	int				infos;
 	int				total_mod;
+	int				cnt;
 }					t_flag;
 
 /*
@@ -48,7 +49,7 @@ void				ft_init_b(int len, t_swap **b);
 ** ft_exit
 */
 void				ft_error(void);
-void				ft_success(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_success(t_swap *a, t_swap *b, t_flag flg);
 void				ft_exit_one_nb(t_swap *a, t_flag flg);
 void				ft_exit_already_ordered(t_swap *a, t_flag flg);
 
@@ -73,7 +74,7 @@ void				ft_init_flag(t_flag *flg);
 */
 int					ft_z(t_swap *swap);
 int					ft_y(t_swap *swap);
-int					ft_launcher(t_swap *a, t_swap *b, t_flag flg);
+int					ft_launcher(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_list_state
@@ -85,43 +86,43 @@ int					ft_is_null(t_swap *swap);
 /*
 ** ft_recursiv
 */
-void				ft_calls_swap(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_calls_push(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_calls_rot(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_calls_rev_rot(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_calls_push(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_calls_rot(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_calls_rev_rot(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_swap
 */
 void				sa(t_swap *a);
 void				ss(t_swap *a, t_swap *b);
-void				ft_rs_a(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rs_b(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rs_ab(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_rs_a(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rs_b(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rs_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_push
 */
 void				pa(t_swap *a, t_swap *b);
-void				ft_rpa_b(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rpb_a(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_rotate
 */
 void				ra(t_swap *a);
 void				rr(t_swap *a, t_swap *b);
-void				ft_rr_a(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rr_b(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rr_ab(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_rr_a(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rr_b(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_rev_rotate
 */
 void				rra(t_swap *a);
 void				rrr(t_swap *a, t_swap *b);
-void				ft_rrr_a(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rrr_b(t_swap *a, t_swap *b, int *i, t_flag flg);
-void				ft_rrr_ab(t_swap *a, t_swap *b, int *i, t_flag flg);
+void				ft_rrr_a(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rrr_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 #endif

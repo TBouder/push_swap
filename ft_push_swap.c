@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 14:51:09 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 15:42:49 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int				main(int ac, char **av)
 		flg.infos ? ft_print_infos(a) : 0;
 		a->next == NULL ? ft_exit_one_nb(a, flg) : 0;
 		ft_is_sorted(a) && ft_is_null(b) ? ft_exit_already_ordered(a, flg) : 0;
-		ft_launcher(a, b, flg);
+		ft_launcher(a, b, &flg);
 	}
 	return (0);
 }
