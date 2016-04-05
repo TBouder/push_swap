@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 15:42:49 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 16:41:43 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 ** -o for number of operation
 ** -i for infos (Starting & ending a stack)
 ** -a for all
+** Possibility to use -vcio instead of -v -c -i -o
 ** Messages for errors
 */
 
@@ -41,23 +42,49 @@ static t_swap	*ft_end(t_swap *swap)
 	return (swap);
 }
 
-static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
+static void		ft_all(t_flag *flg)
 {
-	long	value;
+	flg->verbose = 1;
+	flg->color = 1;
+	flg->ope = 1;
+	flg->infos = 1;
+}
+
+static void		ft_extract_flg(char **str, t_flag *flg)
+{
 	int		i;
+	int		j;
 
 	i = 1;
-	ft_init_flag(flg);
-	while (str[i] && (!CMP(str[i], "-v") || !CMP(str[i], "-c")
-		|| !CMP(str[i], "-o") || !CMP(str[i], "-i") || !CMP(str[i], "-a")))
+	j = 1;
+	while (str[i] && str[i][0] == '-')
 	{
-		!CMP(str[i], "-v") || !CMP(str[i], "-a") ? flg->verbose = 1 : 0;
-		!CMP(str[i], "-c") || !CMP(str[i], "-a") ? flg->color = 1 : 0;
-		!CMP(str[i], "-o") || !CMP(str[i], "-a") ? flg->ope = 1 : 0;
-		!CMP(str[i], "-i") || !CMP(str[i], "-a") ? flg->infos = 1 : 0;
+		j = 1;
+		while (str[i][j] && ft_isalpha(str[i][j]))
+		{
+			if (str[i][j] == 'v')
+				flg->verbose = 1;
+			else if (str[i][j] == 'c')
+				flg->color = 1;
+			else if (str[i][j] == 'o')
+				flg->ope = 1;
+			else if (str[i][j] == 'i')
+				flg->infos = 1;
+			else if (str[i][j] == 'a')
+				ft_all(flg);
+			j++;
+		}
 		flg->total_mod += 1;
 		i++;
 	}
+}
+
+static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
+{
+	long	value;
+
+	ft_init_flag(flg);
+	ft_extract_flg(str, flg);
 	while (len > 0 + flg->total_mod)
 	{
 		value = ft_atoi_swap(str[len]);
