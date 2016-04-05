@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 14:13:14 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:43:04 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 ** Bonus
+** Add messages for errors
 ** -v for verbose mode
 ** -c for color mode
 ** -o for number of operation
@@ -66,17 +67,6 @@ static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
 	}
 }
 
-static void		ft_init_b(int len, t_swap **b)
-{
-	while (len > 0)
-	{
-		ft_swapend(b, 0, 0);
-		len--;
-	}
-}
-
-
-
 int				main(int ac, char **av)
 {
 	int		i;
@@ -99,6 +89,7 @@ int				main(int ac, char **av)
 		ft_end(b);
 		flg.infos ? ft_print_infos(a) : 0;
 		a->next == NULL ? ft_exit_one_nb(a, flg) : 0;
+		ft_is_sorted(a) && ft_is_null(b) ? ft_exit_already_ordered(a, flg) : 0;
 		ft_launcher(a, b, flg);
 	}
 	return (0);
