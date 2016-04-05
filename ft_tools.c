@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:03:11 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 14:42:57 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:48:52 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_check_duplicates(t_swap *a)
 	}
 }
 
-void		ft_init_b(int len, t_swap **b)
+void	ft_init_b(int len, t_swap **b)
 {
 	while (len > 0)
 	{

@@ -6,21 +6,21 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 14:43:04 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 14:51:09 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+#define CMP ft_strcmp
 
 /*
 ** Bonus
-** Add messages for errors
 ** -v for verbose mode
 ** -c for color mode
 ** -o for number of operation
 ** -i for infos (Starting & ending a stack)
-** -a for all (SOON)
-** Add possibility of -vcoi instead of -v -c -o -i (SOON)
+** -a for all
+** Messages for errors
 */
 
 static t_swap	*ft_end(t_swap *swap)
@@ -48,13 +48,13 @@ static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
 
 	i = 1;
 	ft_init_flag(flg);
-	while (str[i] && (!ft_strcmp(str[i], "-v") || !ft_strcmp(str[i], "-c")
-		|| !ft_strcmp(str[i], "-o") || !ft_strcmp(str[i], "-i")))
+	while (str[i] && (!CMP(str[i], "-v") || !CMP(str[i], "-c")
+		|| !CMP(str[i], "-o") || !CMP(str[i], "-i") || !CMP(str[i], "-a")))
 	{
-		ft_strcmp(str[i], "-v") == 0 ? flg->verbose = 1 : 0;
-		ft_strcmp(str[i], "-c") == 0 ? flg->color = 1 : 0;
-		ft_strcmp(str[i], "-o") == 0 ? flg->ope = 1 : 0;
-		ft_strcmp(str[i], "-i") == 0 ? flg->infos = 1 : 0;
+		!CMP(str[i], "-v") || !CMP(str[i], "-a") ? flg->verbose = 1 : 0;
+		!CMP(str[i], "-c") || !CMP(str[i], "-a") ? flg->color = 1 : 0;
+		!CMP(str[i], "-o") || !CMP(str[i], "-a") ? flg->ope = 1 : 0;
+		!CMP(str[i], "-i") || !CMP(str[i], "-a") ? flg->infos = 1 : 0;
 		flg->total_mod += 1;
 		i++;
 	}
