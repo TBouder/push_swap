@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 16:41:43 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 19:31:13 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,8 @@
 ** -a for all
 ** Possibility to use -vcio instead of -v -c -i -o
 ** Messages for errors
+** Add usage message
 */
-
-static t_swap	*ft_end(t_swap *swap)
-{
-	t_swap		*end;
-	t_swap		*start;
-
-	end = swap;
-	start = swap;
-	while (end->next)
-		end = end->next;
-	while (swap)
-	{
-		swap->end = end;
-		swap->start = start;
-		swap = swap->next;
-	}
-	return (swap);
-}
 
 static void		ft_all(t_flag *flg)
 {
@@ -105,7 +88,7 @@ int				main(int ac, char **av)
 	b = NULL;
 	i = ac - 1;
 	if (ac < 2)
-		ft_error();
+		ft_usage();
 	else
 	{
 		ft_extract_stack(av, i, &a, &flg);

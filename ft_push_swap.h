@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 15:42:30 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 19:09:18 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ long				ft_atoi_swap(const char *str);
 void				ft_check_min_man(long value);
 void				ft_check_duplicates(t_swap *a);
 void				ft_init_b(int len, t_swap **b);
+t_swap				*ft_end(t_swap *swap);
 
 /*
 ** ft_exit
 */
 void				ft_error(void);
+void				ft_usage(void);
 void				ft_success(t_swap *a, t_swap *b, t_flag flg);
 void				ft_exit_one_nb(t_swap *a, t_flag flg);
 void				ft_exit_already_ordered(t_swap *a, t_flag flg);

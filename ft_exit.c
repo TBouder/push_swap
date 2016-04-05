@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:47:53 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 15:35:11 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 19:31:01 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,19 @@ void	ft_success(t_swap *a, t_swap *b, t_flag flg)
 void	ft_error(void)
 {
 	ft_putendl_fd("Error", 2);
+	exit(EXIT_FAILURE);
+}
+
+void	ft_usage(void)
+{
+	ft_putendl_fd("usage : push_swap [-vcoia] [n1 n2 ...]", 2);
+	ft_putendl_fd("\tn1, n2, etc.: numbers between -2147483648 and 2147483647"
+		, 2);
+	ft_putendl_fd("\t-v : Enable verbose mode", 2);
+	ft_putendl_fd("\t-c : Enable color mode", 2);
+	ft_putendl_fd("\t-o : Display the number of operations", 2);
+	ft_putendl_fd("\t-i : Display starting and ending 'a' stack", 2);
+	ft_putendl_fd("\t-a : Enable all the previous tags", 2);
 	exit(EXIT_FAILURE);
 }
 
