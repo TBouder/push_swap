@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:47:53 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 19:31:01 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 19:43:13 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void	ft_error(void)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_usage(void)
+void	ft_usage(char *str)
 {
-	ft_putendl_fd("usage : push_swap [-vcoia] [n1 n2 ...]", 2);
+	ft_putstr_fd("usage : ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putendl_fd(" [-vcoia] [n1 n2 ...]", 2);
 	ft_putendl_fd("\tn1, n2, etc.: numbers between -2147483648 and 2147483647"
 		, 2);
 	ft_putendl_fd("\t-v : Enable verbose mode", 2);

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 19:31:13 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/05 19:42:53 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int				main(int ac, char **av)
 	b = NULL;
 	i = ac - 1;
 	if (ac < 2)
-		ft_usage();
+		ft_usage(av[0]);
 	else
 	{
 		ft_extract_stack(av, i, &a, &flg);
