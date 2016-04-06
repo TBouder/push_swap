@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-void	rra(t_swap *a)
+void	ra(t_swap *a)
 {
 	int		first;
 	int		activ;
@@ -36,48 +36,48 @@ void	rra(t_swap *a)
 	ft_push_front(a->start);
 }
 
-void	rrr(t_swap *a, t_swap *b)
+void	rr(t_swap *a, t_swap *b)
 {
-	rra(a);
-	rra(b);
+	ra(a);
+	ra(b);
 }
 
-void	ft_rrr_a(t_swap *a, t_swap *b, t_flag *flg)
+void	ft_rr_a(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	if (flg->color)
-		flg->verbose ? ft_printf("{c}rra{0}\n") : ft_printf("{c}rra{0} ");
+		flg->verbose ? ft_printf("{c}ra{0}\n") : ft_printf("{c}ra{0} ");
 	else
-		flg->verbose ? ft_printf("rra\n") : ft_printf("rra ");
-	rra(a);
+		flg->verbose ? ft_printf("ra\n") : ft_printf("ra ");
+	ra(a);
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_rev_rot(a, b, flg);
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
 
-void	ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg)
+void	ft_rr_b(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	if (flg->color)
-		flg->verbose ? ft_printf("{b}rrb{0}\n") : ft_printf("{b}rrb{0}");
+		flg->verbose ? ft_printf("{b}rb{0}\n") : ft_printf("{b}rb{0}");
 	else
-		flg->verbose ? ft_printf("rrb\n") : ft_printf("rrb");
-	rra(b);
+		flg->verbose ? ft_printf("rb\n") : ft_printf("rb");
+	ra(b);
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_rev_rot(a, b, flg);
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
 
-void	ft_rrr_ab(t_swap *a, t_swap *b, t_flag *flg)
+void	ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	if (flg->color)
-		flg->verbose ? ft_printf("{y}rrr{0}\n") : ft_printf("{y}rrr{0}");
+		flg->verbose ? ft_printf("{y}rr{0}\n") : ft_printf("{y}rr{0}");
 	else
-		flg->verbose ? ft_printf("rrr\n") : ft_printf("rrr");
-	rrr(a, b);
+		flg->verbose ? ft_printf("rr\n") : ft_printf("rr");
+	rr(a, b);
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_rev_rot(a, b, flg);

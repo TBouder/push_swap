@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 19:42:32 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/06 16:32:22 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,19 +112,19 @@ void				ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg);
 /*
 ** ft_rotate
 */
-void				ra(t_swap *a);
-void				rr(t_swap *a, t_swap *b);
-void				ft_rr_a(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rr_b(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg);
-
-/*
-** ft_rev_rotate
-*/
 void				rra(t_swap *a);
 void				rrr(t_swap *a, t_swap *b);
 void				ft_rrr_a(t_swap *a, t_swap *b, t_flag *flg);
 void				ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg);
 void				ft_rrr_ab(t_swap *a, t_swap *b, t_flag *flg);
+
+/*
+** ft_rev_rotate
+*/
+void				ra(t_swap *a);
+void				rr(t_swap *a, t_swap *b);
+void				ft_rr_a(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rr_b(t_swap *a, t_swap *b, t_flag *flg);
+void				ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 #endif
