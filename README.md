@@ -39,3 +39,4 @@
 2. git clone https://bitbucket.org/Tbouder/libft  
 3. cd ..  
 4. make  
+5. ./push_swap [-vcoia] [n1 n2 ...]  
