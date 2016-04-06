@@ -4,18 +4,18 @@
 
 ###Gameplay  
 >The project goal is to order a stack (A), using another stack (B) and only 11 possible moves. At the beginning B is empty and their is various unique integers in A.  
->The stack has to be ordered decreasingly (left to right || bottom to top)
-> * sa : swap the top two elements on stack A
-> * sb : swap the top two elements on stack B
-> * ss : sa and sb at the same time
-> * pb : take the top element of A and move it to the top of B
-> * pa : take the top element of B and move it to the top of A
-> * rra : move all the elements on A to the top, moving the top element to the bottom
-> * rrb : move all the elements on B to the top, moving the top element to the bottom
-> * rrr : rra and rrb at the same time
-> * ra : move all the elements on A to the bottom, moving the bottom element to the top
-> * rb : move all the elements on B to the bottom, moving the bottom element to the top
-> * rr : ra and rb at the same time
+>The stack has to be ordered decreasingly (left to right || bottom to top)  
+> * sa : swap the top two elements on stack A  
+> * sb : swap the top two elements on stack B  
+> * ss : sa and sb at the same time  
+> * pb : take the top element of A and move it to the top of B  
+> * pa : take the top element of B and move it to the top of A  
+> * rra : move all the elements on A to the top, moving the top element to the bottom  
+> * rrb : move all the elements on B to the top, moving the top element to the bottom  
+> * rrr : rra and rrb at the same time  
+> * ra : move all the elements on A to the bottom, moving the bottom element to the top  
+> * rb : move all the elements on B to the bottom, moving the bottom element to the top  
+> * rr : ra and rb at the same time  
 
 ###Bonus :  
 - [x] -v for verbose mode   
