@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 16:21:39 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/07 12:56:23 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ int		ft_y(t_swap *swap)
 
 	tmp = swap->end;
 	while (tmp && tmp->activ == 0 && tmp->prev)
+		tmp = tmp->prev;
+	if (tmp != NULL && tmp->prev)
+		tmp = tmp->prev;
+	return (tmp->stack);
+}
+
+int		ft_w(t_swap *swap)
+{
+	t_swap	*tmp;
+
+	tmp = swap->end;
+	while (tmp && tmp->activ == 0 && tmp->prev)
+		tmp = tmp->prev;
+	if (tmp != NULL && tmp->prev)
 		tmp = tmp->prev;
 	if (tmp != NULL && tmp->prev)
 		tmp = tmp->prev;
