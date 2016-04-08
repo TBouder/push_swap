@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/06 16:32:22 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/08 18:45:08 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_rrr_a(t_swap *a, t_swap *b, t_flag *flg)
 	rra(a);
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
-	ft_calls_rot(a, b, flg);
+	ft_calls_rev_rot(a, b, flg);
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
 
@@ -65,7 +65,7 @@ void	ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg)
 	rra(b);
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
-	ft_calls_rot(a, b, flg);
+	ft_calls_rev_rot(a, b, flg);
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
 
@@ -79,6 +79,6 @@ void	ft_rrr_ab(t_swap *a, t_swap *b, t_flag *flg)
 	rrr(a, b);
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
-	ft_calls_rot(a, b, flg);
+	ft_calls_rev_rot(a, b, flg);
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
