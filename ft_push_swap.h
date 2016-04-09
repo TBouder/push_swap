@@ -61,7 +61,7 @@ void				ft_exit_already_ordered(t_swap *a, t_flag flg);
 void				ft_swapend(t_swap **swap, int value, int activ);
 void				ft_push_front(t_swap *stack);
 int					ft_swaplen(t_swap *swap);
-int					ft_swaprev(t_swap *swap);
+int					ft_order(t_swap *swap);
 
 /*
 ** ft_flags

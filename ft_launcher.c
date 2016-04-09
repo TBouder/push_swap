@@ -53,7 +53,7 @@ int		ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 	if (ft_z(a) < ft_y(a) && ft_z(a) < a->stack)
 		ft_rpa_b(a, b, flg);
 	else if (ft_z(a) < ft_y(a) && ft_z(a) > a->stack)
-		!ft_swaprev(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg);
+		!ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg);
 	else if (ft_z(a) > ft_y(a))
 		ft_rs_a(a, b, flg);
 	else if (ft_z(b) < ft_y(b))

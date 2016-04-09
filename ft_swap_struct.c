@@ -86,7 +86,7 @@ int				ft_swaplen(t_swap *swap)
 	return (i);
 }
 
-int				ft_swaprev(t_swap *swap)
+int				ft_order(t_swap *swap)
 {
 	int		len;
 	int		o_len;
