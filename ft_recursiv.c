@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/11 16:58:31 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/11 17:00:39 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void		ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg)
 void		ft_calls_push(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_z(b) >= ft_y(b) && ft_z(b) < B ? ft_rrr_b(a, b, flg) : 0;
-
 	if (ft_z(a) > ft_y(a))
 	{
 		ft_z(a) < A && ft_z(b) < ft_y(b) ? ft_rs_ab(a, b, flg) : 0;
@@ -77,7 +76,6 @@ void		ft_calls_rev_rot(t_swap *a, t_swap *b, t_flag *flg)
 		ft_z(a) < A && ft_z(b) < ft_y(b) ? ft_rs_b(a, b, flg) : 0;
 	}
 	ft_z(b) > ft_y(b) && ft_z(b) < B ? ft_rrr_b(a, b, flg) : 0;
-
 }
 
 void		ft_calls_rot(t_swap *a, t_swap *b, t_flag *flg)
