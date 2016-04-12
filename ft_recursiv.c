@@ -6,13 +6,11 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/11 17:00:39 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 16:35:39 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-#define A a->stack
-#define B b->stack
 
 void		ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg)
 {

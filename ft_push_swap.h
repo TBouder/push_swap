@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 16:01:39 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 16:21:55 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
+# define A a->stack
+# define B b->stack
 
 typedef struct		s_swap
 {
