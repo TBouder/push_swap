@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/09 13:11:52 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 19:03:00 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_rr_a(t_swap *a, t_swap *b, t_flag *flg)
 	else
 		flg->verbose ? ft_printf("ra\n") : ft_printf("ra ");
 	ra(a);
+	flg->prev = 2;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_rot(a, b, flg);
@@ -64,6 +65,7 @@ void	ft_rr_b(t_swap *a, t_swap *b, t_flag *flg)
 	else
 		flg->verbose ? ft_printf("rb\n") : ft_printf("rb");
 	ra(b);
+	flg->prev = 2;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_rot(a, b, flg);
@@ -78,6 +80,7 @@ void	ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg)
 	else
 		flg->verbose ? ft_printf("rr\n") : ft_printf("rr");
 	rr(a, b);
+	flg->prev = 2;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_rot(a, b, flg);
