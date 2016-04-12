@@ -6,7 +6,7 @@
 #    By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 15:48:47 by tbouder           #+#    #+#              #
-#    Updated: 2016/04/08 12:29:57 by tbouder          ###   ########.fr        #
+#    Updated: 2016/04/12 15:55:49 by tbouder          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,20 +30,20 @@ all: $(NAME)
 
 .SILENT : $(NAME)
 $(NAME):
-	$(MAKE) re -C ft_printf
+	# $(MAKE) re -C ft_printf
 	$(CC) $(CFLAGS) -c $(HEADER) $(SRC)
 	$(CC) -o $(NAME) $(OBJ) $(LIB)
 
 .SILENT : clean
 clean:
-	$(MAKE) clean -C ft_printf
+	# $(MAKE) clean -C ft_printf
 	rm -f $(OBJ)
 	rm -f *.gch
 	rm -rf *.dSYM
 
 .SILENT : fclean
 fclean: clean
-	$(MAKE) fclean -C ft_printf
+	# $(MAKE) fclean -C ft_printf
 	rm -f $(NAME)
 
 .SILENT : fclean

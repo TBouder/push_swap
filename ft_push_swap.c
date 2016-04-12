@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/05 19:42:53 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 16:11:57 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,11 @@ static void		ft_all(t_flag *flg)
 	flg->infos = 1;
 }
 
-static void		ft_extract_flg(char **str, t_flag *flg)
+static void		ft_extract_flg(char **str, t_flag *flg, int i)
 {
-	int		i;
 	int		j;
 
-	i = 1;
-	j = 1;
-	while (str[i] && str[i][0] == '-')
+	while (str[i] && str[i][0] == '-' && ft_isalpha(str[i][1]))
 	{
 		j = 1;
 		while (str[i][j] && ft_isalpha(str[i][j]))
@@ -55,6 +52,8 @@ static void		ft_extract_flg(char **str, t_flag *flg)
 				flg->infos = 1;
 			else if (str[i][j] == 'a')
 				ft_all(flg);
+			else
+				ft_usage(*str);
 			j++;
 		}
 		flg->total_mod += 1;
@@ -67,7 +66,7 @@ static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
 	long	value;
 
 	ft_init_flag(flg);
-	ft_extract_flg(str, flg);
+	ft_extract_flg(str, flg, 1);
 	while (len > 0 + flg->total_mod)
 	{
 		value = ft_atoi_swap(str[len]);

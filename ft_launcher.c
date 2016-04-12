@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/11 17:07:55 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 16:05:13 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,18 @@ int		ft_y(t_swap *swap)
 	return (tmp->stack);
 }
 
-int		ft_w(t_swap *swap)
-{
-	t_swap	*tmp;
-
-	tmp = swap->end;
-	while (tmp && tmp->activ == 0 && tmp->prev)
-		tmp = tmp->prev;
-	if (tmp != NULL && tmp->prev)
-		tmp = tmp->prev;
-	if (tmp != NULL && tmp->prev)
-		tmp = tmp->prev;
-	return (tmp->stack);
-}
-
 int		ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
-	if (ft_z(a) < ft_y(a) && ft_z(a) < a->stack)
-		ft_rpa_b(a, b, flg);
-	else if (ft_z(a) < ft_y(a) && ft_z(a) > a->stack)
-		!ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg);
-	else if (ft_z(a) > ft_y(a))
-		ft_rs_a(a, b, flg);
-	else if (ft_z(b) < ft_y(b))
-		ft_rs_b(a, b, flg);
+	while (1)
+	{
+		if (ft_z(a) < ft_y(a) && ft_z(a) < a->stack)
+			ft_rpa_b(a, b, flg);
+		else if (ft_z(a) < ft_y(a) && ft_z(a) > a->stack)
+			ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg);
+		else if (ft_z(a) > ft_y(a))
+			ft_rs_a(a, b, flg);
+		else if (ft_z(b) < ft_y(b))
+			ft_rs_b(a, b, flg);
+	}
 	return (1);
 }
