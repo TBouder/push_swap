@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 16:21:55 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 16:48:58 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int					ft_launcher(t_swap *a, t_swap *b, t_flag *flg);
 int					ft_sorted_a(t_swap *swap);
 int					ft_sorted_all(t_swap *a, t_swap *b);
 int					ft_is_sorted(t_swap *swap);
+int					ft_is_r_sorted(t_swap *swap);
 int					ft_is_null(t_swap *swap);
 
 /*

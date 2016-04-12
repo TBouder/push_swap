@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 16:46:45 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 16:53:33 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
 	while (1)
 	{
-		if (ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_sorted(a->next))
+		if (ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_r_sorted(a->end))
 			ft_rr_a(a, b, flg);
 		if (ft_z(a) < ft_y(a) && ft_z(a) < A)
 			ft_rpa_b(a, b, flg);
