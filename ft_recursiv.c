@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 17:33:00 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 18:17:43 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg)
 		ft_z(a) > A && ft_z(b) > A && BNULL ? ft_rpb_a(a, b, flg) : 0;
 		ft_z(a) > A && !ft_order(a) ? ft_rrr_a(a, b, flg) : 0;
 		ft_z(a) > A && ft_order(a) ? ft_rr_a(a, b, flg) : 0;
-		ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0;
+		ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0; //////////////////////////
 	}
 	ft_z(b) > ft_y(b) && ft_z(b) < B ? ft_rrr_b(a, b, flg) : 0;
 }
@@ -42,7 +42,7 @@ void		ft_calls_push(t_swap *a, t_swap *b, t_flag *flg)
 	{
 		ft_z(a) > A && !BNULL && ft_z(b) > ft_y(b) && ft_z(b) < B ? ft_rrr_ab(a, b, flg) : 0;
 		ft_z(a) > A ? ft_rrr_a(a, b, flg) : 0;
-		ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0;
+		ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0; //////////////////////////
 		ft_z(a) < A && !BNULL && ft_z(b) < ft_y(b) ? ft_rs_b(a, b, flg) : 0;
 	}
 	ft_z(b) > ft_y(b) && ft_z(b) < B ? ft_rrr_b(a, b, flg) : 0;

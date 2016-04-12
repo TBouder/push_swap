@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 17:41:00 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 18:17:11 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,19 @@ int		ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 	while (1)
 	{
 		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_r_sorted(a->end) ? ft_rr_a(a, b, flg) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A ? !ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg) : 0;
-		// ft_z(a) > ft_y(a) && ft_z(a) > A ? ft_rr_a(a, b, flg) : 0;
+		ft_z(a) > ft_y(a) && ft_y(a) > A && ft_order(a) && ft_z(a) > A ? ft_rrr_a(a, b, flg) : 0;
+
 		ft_z(a) > ft_y(a) ? ft_rs_a(a, b, flg) : 0;
+
+		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_rr_a(a, b, flg) : 0;
+		// ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A ? !ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg) : 0;
+
+
 		ft_z(b) < ft_y(b) ? ft_rs_b(a, b, flg) : 0;
 	}
 	return (1);
 }
+
+
+// 950 986 985 984 983 982 981 980 979 978 977 976 975 974 973 972 971 970 969 968 967 966 965 964 963 962 961 960 959 958 957 956 955 954 953 952 951
