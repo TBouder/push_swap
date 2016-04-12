@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 17:09:46 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/12 17:41:00 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,12 @@ int		ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
 	while (1)
 	{
-		if (ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_r_sorted(a->end))
-			ft_rr_a(a, b, flg);
-		if (ft_z(a) < ft_y(a) && ft_z(a) < A)
-			ft_rpa_b(a, b, flg);
-		if (ft_z(a) < ft_y(a) && ft_z(a) > A)
-			!ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg);
-		if (ft_z(a) > ft_y(a))
-			ft_rs_a(a, b, flg);
-		if (ft_z(b) < ft_y(b))
-			ft_rs_b(a, b, flg);
+		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_r_sorted(a->end) ? ft_rr_a(a, b, flg) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A ? !ft_order(a) ? ft_rrr_a(a, b, flg) : ft_rr_a(a, b, flg) : 0;
+		// ft_z(a) > ft_y(a) && ft_z(a) > A ? ft_rr_a(a, b, flg) : 0;
+		ft_z(a) > ft_y(a) ? ft_rs_a(a, b, flg) : 0;
+		ft_z(b) < ft_y(b) ? ft_rs_b(a, b, flg) : 0;
 	}
 	return (1);
 }
