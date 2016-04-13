@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/13 18:26:15 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/13 18:55:19 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_swap *a, t_swap *b)
 
 	end_a = a->end;
 	end_b = b->end;
-	while (end_b && end_b->activ == 0)
+	while (end_b && end_b->prev && end_b->activ == 0)
 		end_b = end_b->prev;
 	if (end_a != NULL && end_b != NULL && end_b->activ)
 	{

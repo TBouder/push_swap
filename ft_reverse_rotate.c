@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/13 18:26:09 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/13 18:55:10 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rra(t_swap *a)
 		first = a->stack;
 		activ = a->activ;
 	}
-	while (a->next)
+	while (a && a->next)
 	{
 		a->stack = a->next->stack;
 		a->activ = a->next->activ;

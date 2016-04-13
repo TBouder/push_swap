@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:51:05 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/12 17:13:04 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/13 18:43:56 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int		ft_sorted_a(t_swap *swap)
 int		ft_sorted_all(t_swap *a, t_swap *b)
 {
 	a = a->end;
-	while (a->activ == 0 && a->prev)
+	while (a && a->activ == 0 && a->prev)
 		a = a->prev;
 	b = b->end;
-	while (b->activ == 0 && b->prev)
+	while (b && b->activ == 0 && b->prev)
 		b = b->prev;
 	if (b->stack < a->stack)
 		return (1);
