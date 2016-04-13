@@ -6,7 +6,7 @@
 #    By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 15:48:47 by tbouder           #+#    #+#              #
-#    Updated: 2016/04/12 15:55:49 by tbouder          ###   ########.fr        #
+#    Updated: 2016/04/13 19:32:03 by tbouder          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,10 @@ NAME 		= 	push_swap
 
 CC			= 	gcc
 CFLAGS		= 	-Wall -Werror -Wextra -g
+LIMIT		=	-Wl,-stack_size,4194304
+# gcc -Wl,-stack_size -Wl,1000000 foo.c
+
+
 
 SRC 		= 	ft_push_swap.c ft_launcher.c ft_recursiv.c \
 				ft_tools.c ft_swap_struct.c ft_flags.c ft_exit.c \
@@ -32,7 +36,7 @@ all: $(NAME)
 $(NAME):
 	# $(MAKE) re -C ft_printf
 	$(CC) $(CFLAGS) -c $(HEADER) $(SRC)
-	$(CC) -o $(NAME) $(OBJ) $(LIB)
+	$(CC) $(LIMIT) -o $(NAME) $(OBJ) $(LIB)
 
 .SILENT : clean
 clean:
