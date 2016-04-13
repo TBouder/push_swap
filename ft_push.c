@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/13 14:00:43 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/13 14:16:05 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg)
 	else
 		flg->verbose ? ft_printf("pa\n") : ft_printf("pa ");
 	pa(a, b);
-	flg->prev = 2;
+	flg->prev == 1 ? flg->prev = 2 : 0;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	ft_calls_push(a, b, flg);
