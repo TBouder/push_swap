@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/14 15:03:09 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/14 15:42:53 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 # include "ft_printf/ft_printf.h"
 # define A a->stack
 # define B b->stack
+# define PA 1
+# define PB 2
+# define RRA 3
+# define RRB 4
+# define RRR 5
+# define RA 6
+# define RB 7
+# define RR 8
+# define SA 9
+# define SB 10
+# define SS 11
 
 typedef struct		s_swap
 {
@@ -38,6 +49,7 @@ typedef struct		s_flag
 	int				total_mod;
 	long			cnt;
 	int				prev;
+	int				display;
 }					t_flag;
 
 /*

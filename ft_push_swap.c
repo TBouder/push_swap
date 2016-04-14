@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/14 15:03:18 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/14 15:48:29 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ static void		ft_all(t_flag *flg)
 	flg->infos = 1;
 }
 
-static void		ft_extract_flg(char **str, t_flag *flg, int i)
+static void		ft_extract_flg(char **str, t_flag *flg, int i, int j)
 {
-	int		j;
-
 	while (str[i] && str[i][0] == '-' && ft_isalpha(str[i][1]))
 	{
 		j = 1;
@@ -50,6 +48,8 @@ static void		ft_extract_flg(char **str, t_flag *flg, int i)
 				flg->ope = 1;
 			else if (str[i][j] == 'i')
 				flg->infos = 1;
+			else if (str[i][j] == 'd')
+				flg->display = 1;
 			else if (str[i][j] == 'a')
 				ft_all(flg);
 			else
@@ -66,7 +66,7 @@ static void		ft_extract_stack(char **str, int len, t_swap **a, t_flag *flg)
 	long	value;
 
 	ft_init_flag(flg);
-	ft_extract_flg(str, flg, 1);
+	ft_extract_flg(str, flg, 1, 0);
 	while (len > 0 + flg->total_mod)
 	{
 		value = ft_atoi_swap(str[len]);
