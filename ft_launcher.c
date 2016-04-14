@@ -6,13 +6,40 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/13 18:44:20 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/14 15:24:01 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int		ft_z(t_swap *swap)
+static void		ft_opti(t_swap *a, t_swap *b, t_flag *flg, int id)
+{
+	int		i;
+
+	i = id;
+	while (!(ft_is_sorted(a) && ft_is_null(b)))
+	{
+		(id == 1) ? i = ft_rpa_b(a, b, flg) : 0;
+		(id == 2) ? i = ft_rpb_a(a, b, flg) : 0;
+		(id == 3) ? i = ft_rrr_a(a, b, flg) : 0;
+		(id == 4) ? i = ft_rrr_b(a, b, flg) : 0;
+		(id == 5) ? i = ft_rrr_ab(a, b, flg) : 0;
+		(id == 6) ? i = ft_rr_a(a, b, flg) : 0;
+		(id == 7) ? i = ft_rr_b(a, b, flg) : 0;
+		(id == 8) ? i = ft_rr_ab(a, b, flg) : 0;
+		(id == 9) ? i = ft_rs_a(a, b, flg) : 0;
+		(id == 10) ? i = ft_rs_b(a, b, flg) : 0;
+		(id == 11) ? i = ft_rs_ab(a, b, flg) : 0;
+		(id == 0) ? ft_launcher(a, b, flg) : 0;
+		(i == 1) ? id = ft_calls_push(a, b, flg) : 0;
+		(i == 2) ? id = ft_calls_rev_rot(a, b) : 0;
+		(i == 3) ? id = ft_calls_rot(a, b) : 0;
+		(i == 4) ? id = ft_calls_swap(a, b) : 0;
+		ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
+	}
+}
+
+int				ft_z(t_swap *swap)
 {
 	t_swap	*tmp;
 
@@ -22,7 +49,7 @@ int		ft_z(t_swap *swap)
 	return (tmp->stack);
 }
 
-int		ft_y(t_swap *swap)
+int				ft_y(t_swap *swap)
 {
 	t_swap	*tmp;
 
@@ -34,21 +61,21 @@ int		ft_y(t_swap *swap)
 	return (tmp->stack);
 }
 
-int		ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
+int				ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
 	while (1)
 	{
 		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A
-			&& ft_is_r_sorted(a->end) ? ft_rr_a(a, b, flg) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) < A && ft_y(a) < A ? ft_rr_a(a, b, flg)
-			: 0;
-		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_rpa_b(a, b, flg) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A && !ft_order(a) ? ft_rrr_a(a, b, flg)
-			: 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A && ft_order(a) ? ft_rr_a(a, b, flg)
-			: 0;
-		ft_z(a) > ft_y(a) ? ft_rs_a(a, b, flg) : 0;
-		ft_z(b) < ft_y(b) ? ft_rs_b(a, b, flg) : 0;
+			&& ft_is_r_sorted(a->end) ? ft_opti(a, b, flg, 6) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) < A
+			&& ft_y(a) < A ? ft_opti(a, b, flg, 6) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_opti(a, b, flg, 1) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A
+			&& !ft_order(a) ? ft_opti(a, b, flg, 3) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A
+			&& ft_order(a) ? ft_opti(a, b, flg, 6) : 0;
+		ft_z(a) > ft_y(a) ? ft_opti(a, b, flg, 9) : 0;
+		ft_z(b) < ft_y(b) ? ft_opti(a, b, flg, 10) : 0;
 	}
 	return (1);
 }

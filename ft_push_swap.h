@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/13 18:45:03 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/14 15:03:09 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,43 +93,43 @@ int					ft_is_null(t_swap *swap);
 /*
 ** ft_recursiv
 */
-void				ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_calls_push(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_calls_rot(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_calls_rev_rot(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_calls_swap(t_swap *a, t_swap *b);
+int					ft_calls_push(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_calls_rot(t_swap *a, t_swap *b);
+int					ft_calls_rev_rot(t_swap *a, t_swap *b);
 
 /*
 ** ft_swap
 */
 void				sa(t_swap *a);
 void				ss(t_swap *a, t_swap *b);
-void				ft_rs_a(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rs_b(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rs_ab(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rs_a(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rs_b(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rs_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_push
 */
 void				pa(t_swap *a, t_swap *b);
-void				ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_rotate
 */
 void				rra(t_swap *a);
 void				rrr(t_swap *a, t_swap *b);
-void				ft_rrr_a(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rrr_ab(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rrr_a(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rrr_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 /*
 ** ft_rev_rotate
 */
 void				ra(t_swap *a);
 void				rr(t_swap *a, t_swap *b);
-void				ft_rr_a(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rr_b(t_swap *a, t_swap *b, t_flag *flg);
-void				ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rr_a(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rr_b(t_swap *a, t_swap *b, t_flag *flg);
+int					ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 15:48:47 by tbouder           #+#    #+#              #
-#    Updated: 2016/04/13 19:32:03 by tbouder          ###   ########.fr        #
+#    Updated: 2016/04/13 19:33:12 by tbouder          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME 		= 	push_swap
 
 CC			= 	gcc
 CFLAGS		= 	-Wall -Werror -Wextra -g
-LIMIT		=	-Wl,-stack_size,4194304
+LIMIT		=	-Wl,-stack_size,10000000
 # gcc -Wl,-stack_size -Wl,1000000 foo.c
 
 
