@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/15 11:39:19 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/18 15:42:53 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		ft_algo(t_swap *a, t_swap *b, t_flag *flg, int id)
 		(i == 1) ? id = ft_calls_push(a, b, flg) : 0;
 		(i == 2) ? id = ft_calls_rev_rot(a, b) : 0;
 		(i == 3) ? id = ft_calls_rot(a, b) : 0;
-		(i == 4) ? id = ft_calls_swap(a, b) : 0;
+		(i == 4) ? id = ft_calls_swap(a, b, flg) : 0;
 		ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	}
 }

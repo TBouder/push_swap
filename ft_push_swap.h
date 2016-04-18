@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/15 11:39:31 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/18 15:42:48 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int					ft_is_null(t_swap *swap);
 /*
 ** ft_recursiv
 */
-int					ft_calls_swap(t_swap *a, t_swap *b);
+int					ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg);
 int					ft_calls_push(t_swap *a, t_swap *b, t_flag *flg);
 int					ft_calls_rot(t_swap *a, t_swap *b);
 int					ft_calls_rev_rot(t_swap *a, t_swap *b);
