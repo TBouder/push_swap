@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/14 15:46:12 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/18 20:13:29 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	pa(t_swap *a, t_swap *b)
 int		ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
-	if (ft_sorted_a(a))
+	if (ft_sorted_a(a) && !ft_is_null(b))
 		ft_rpb_a(a, b, flg);
 	else
 	{
@@ -52,9 +52,7 @@ int		ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg)
 		flg->verbose ? ft_flag_v(a, b) : 0;
 		flg->cnt += 1;
 	}
-	// ft_calls_push(a, b, flg);
 	return (1);
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
 
 int		ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg)
@@ -68,7 +66,5 @@ int		ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg)
 	flg->prev == 1 ? flg->prev = 2 : 0;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
-	// ft_calls_push(a, b, flg);
 	return (1);
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }

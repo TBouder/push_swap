@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/18 15:42:48 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/18 17:04:18 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "ft_printf/ft_printf.h"
 # define A a->stack
 # define B b->stack
-# define PA 1
-# define PB 2
+# define PB 1
+# define PA 2
 # define RRA 3
 # define RRB 4
 # define RRR 5
