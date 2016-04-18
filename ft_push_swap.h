@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/14 15:42:53 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/15 11:39:31 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void				ft_init_flag(t_flag *flg);
 */
 int					ft_z(t_swap *swap);
 int					ft_y(t_swap *swap);
+int					ft_w(t_swap *swap);
 int					ft_launcher(t_swap *a, t_swap *b, t_flag *flg);
 
 /*

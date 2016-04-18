@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/14 15:48:29 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/15 10:54:04 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 ** -c for color mode
 ** -o for number of operation
 ** -i for infos (Starting & ending a stack)
-** -a for all
+** -a for all above
+** -s for silent mode
 ** Possibility to use -vcio instead of -v -c -i -o
 ** Messages for errors
 ** Add usage message
@@ -48,7 +49,7 @@ static void		ft_extract_flg(char **str, t_flag *flg, int i, int j)
 				flg->ope = 1;
 			else if (str[i][j] == 'i')
 				flg->infos = 1;
-			else if (str[i][j] == 'd')
+			else if (str[i][j] == 's')
 				flg->display = 1;
 			else if (str[i][j] == 'a')
 				ft_all(flg);

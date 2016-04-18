@@ -6,13 +6,13 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/14 15:36:36 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/15 11:39:19 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static void		ft_opti(t_swap *a, t_swap *b, t_flag *flg, int id)
+static void		ft_algo(t_swap *a, t_swap *b, t_flag *flg, int id)
 {
 	int		i;
 
@@ -61,21 +61,32 @@ int				ft_y(t_swap *swap)
 	return (tmp->stack);
 }
 
+int				ft_w(t_swap *swap)
+{
+	t_swap	*tmp;
+
+	tmp = swap->end;
+	while (tmp && tmp->activ == 0 && tmp->prev)
+		tmp = tmp->prev;
+	if (tmp && tmp != NULL && tmp->prev)
+		tmp = tmp->prev;
+	if (tmp && tmp != NULL && tmp->prev)
+		tmp = tmp->prev;
+	return (tmp->stack);
+}
+
 int				ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
 	while (1)
 	{
-		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A
-			&& ft_is_r_sorted(a->end) ? ft_opti(a, b, flg, 6) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) < A
-			&& ft_y(a) < A ? ft_opti(a, b, flg, 6) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_opti(a, b, flg, 1) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A
-			&& !ft_order(a) ? ft_opti(a, b, flg, 3) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A
-			&& ft_order(a) ? ft_opti(a, b, flg, 6) : 0;
-		ft_z(a) > ft_y(a) ? ft_opti(a, b, flg, 9) : 0;
-		ft_z(b) < ft_y(b) ? ft_opti(a, b, flg, 10) : 0;
+		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_r_sorted(a->end) ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_is_r_sorted(a->end->prev) ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) < A && ft_y(a) < A ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_algo(a, b, flg, PA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A && !ft_order(a) ? ft_algo(a, b, flg, RRA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A && ft_order(a) ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) > ft_y(a) ? ft_algo(a, b, flg, SA) : 0;
+		ft_z(b) < ft_y(b) ? ft_algo(a, b, flg, SB) : 0;
 	}
 	return (1);
 }
