@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:47:53 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/19 12:44:00 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/19 14:38:09 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,14 @@ void	ft_success(t_swap *a, t_swap *b, t_flag flg)
 	b = NULL;
 	free(a);
 	free(b);
-	if (flg.ope)
-		flg.color ? ft_printf("Number of operations : {g}%d{0}\n", flg.cnt)
-			: ft_printf("\n\nNumber of operations : %d\n", flg.cnt);
+	if (flg.ope && flg.color && !flg.display)
+		ft_printf("\n\nNumber of operations : {g}%d{0}\n", flg.cnt);
+	else if (flg.ope && !flg.color && !flg.display)
+		ft_printf("\n\nNumber of operations : %d\n", flg.cnt);
+	else if (flg.ope && flg.color && flg.display)
+		ft_printf("Number of operations : {g}%d{0}\n", flg.cnt);
+	else if (flg.ope && !flg.color && flg.display)
+		ft_printf("Number of operations : %d\n", flg.cnt);
 	else
 		ft_putchar('\n');
 	exit(EXIT_SUCCESS);
