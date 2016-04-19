@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:45:38 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/19 12:26:35 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/19 12:44:03 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int				ft_order(t_swap *swap)
 	{
 		if (swap->stack > swap->prev->stack)
 		{
-			if (len >= o_len / 2)
+			if (len > o_len / 2)
 				return (1);
 			else
 				return (0);
