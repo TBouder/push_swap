@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:56:44 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/18 22:14:56 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/19 11:22:14 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ft_rs_a(t_swap *a, t_swap *b, t_flag *flg)
 	else if (!flg->display)
 		flg->verbose ? ft_printf("sa\n") : ft_printf("sa ");
 	sa(a);
+	flg->prev = 0;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	return (4);
@@ -57,6 +58,7 @@ int		ft_rs_b(t_swap *a, t_swap *b, t_flag *flg)
 	else if (!flg->display)
 		flg->verbose ? ft_printf("sb\n") : ft_printf("sb ");
 	sa(b);
+	flg->prev = 0;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	return (4);
@@ -70,6 +72,7 @@ int		ft_rs_ab(t_swap *a, t_swap *b, t_flag *flg)
 	else if (!flg->display)
 		flg->verbose ? ft_printf("ss\n") : ft_printf("ss ");
 	ss(a, b);
+	flg->prev = 0;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	return (4);
