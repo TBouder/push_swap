@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 22:54:39 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/18 22:15:00 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/19 11:56:57 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_rrr_b(t_swap *a, t_swap *b, t_flag *flg)
 	else if (!flg->display)
 		flg->verbose ? ft_printf("rrb\n") : ft_printf("rrb ");
 	rra(b);
-	flg->prev = 1;
+	// flg->prev = 1;
 	flg->verbose ? ft_flag_v(a, b) : 0;
 	flg->cnt += 1;
 	return (2);

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/19 11:17:42 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/19 11:59:42 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg)
 		!r && ft_z(a) > A && !BNULL && ft_z(b) > ft_y(b) && ft_z(b) < B && !ft_order(a) ? r = RRR : 0;
 		!r && ft_z(a) > A && flg->prev < 2 ? r = RRA : 0;
 		!r && ft_z(a) > A && flg->prev == 2 ? r = RA : 0;
+
 		!r && ft_z(a) < A && ft_y(a) > A && (a->next->stack < ft_z(a) || ft_is_sorted(a->next)) ? r = RRA : 0;
 		!r && ft_z(a) < A ? r = PB : 0;
 	}
@@ -42,7 +43,9 @@ int			ft_calls_push(t_swap *a, t_swap *b, t_flag *flg)
 	{
 		// !r && ft_z(a) > A && ft_order(a) && flg->prev == 2 ? r = RRA : 0;
 		// !r && ft_z(a) > A && ft_order(a) && flg->prev < 2 ? r = RA : 0;
-		!r && ft_z(a) > A && flg->prev < 2 ? r = RRA : 0;
+
+		!r && ft_z(a) > A && flg->prev == 0 && !ft_order(a) ? r = RRA : 0;
+		!r && ft_z(a) > A && flg->prev == 1 ? r = RRA : 0;
 		!r && ft_z(a) > A && flg->prev == 2 ? r = RA : 0;
 
 		!r && ft_z(b) < ft_y(b) && ft_z(b) > B ? r = RB : 0;
@@ -55,8 +58,14 @@ int			ft_calls_push(t_swap *a, t_swap *b, t_flag *flg)
 		!r && !BNULL && ft_z(b) < ft_y(b) && ft_z(b) > B ? r = SB : 0;
 		!r && !BNULL && ft_z(a) > A && ft_z(b) > ft_y(b) && ft_z(b) < B ? r = RRR : 0;
 		!r && ft_z(b) < ft_y(b) ? r = RB : 0;
+
 		!r && ft_z(a) > A && flg->prev < 2 ? r = RRA : 0;
 		!r && ft_z(a) > A && flg->prev == 2 ? r = RA : 0;
+		// !r && ft_z(a) > A && flg->prev == 0 && !ft_order(a) ? r = RRA : 0;
+		// !r && ft_z(a) > A && flg->prev == 1 ? r = RRA : 0;
+		// !r && ft_z(a) > A && flg->prev == 2 ? r = RA : 0;
+
+
 		!r && ft_z(a) < A && a->next->next && a->next->next->stack > a->next->stack ? r = PB : 0;
 		!r && ft_z(a) < A && a->next && a->next->stack > A ? r = PB : 0;
 		!r && ft_z(a) < A && ft_y(a) > A && (a->next->stack < ft_z(a) || ft_is_sorted(a->next)) ? r = RRA : 0;
