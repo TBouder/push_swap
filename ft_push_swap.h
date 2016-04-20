@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 19:59:47 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 20:38:40 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,10 @@ void				rr(t_swap *a, t_swap *b);
 int					ft_rr_a(t_swap *a, t_swap *b, t_flag *flg);
 int					ft_rr_b(t_swap *a, t_swap *b, t_flag *flg);
 int					ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg);
+
+/*
+** ft_part
+*/
+void				ft_start_unordered(t_swap *a, t_swap *b, t_flag *flg);
 
 #endif
