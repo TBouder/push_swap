@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:51:05 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/13 18:43:56 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 16:06:42 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ int		ft_is_r_sorted(t_swap *swap)
 {
 	long	value;
 
-	swap = swap->prev;
+	if (swap->prev)
+		swap = swap->prev;
+	else
+		return (0);
 	value = swap->stack;
 	while (swap)
 	{
