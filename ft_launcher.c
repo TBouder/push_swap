@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 16:05:15 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 20:03:17 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,17 @@ int				ft_w(t_swap *swap)
 	return (tmp->stack);
 }
 
-int				ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
+void			ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
+	if (A < a->next->stack && ft_is_sorted(a->next))
+	{
+		ft_rrr_a(a, b, flg);
+		ft_rrr_a(a, b, flg);
+		ft_rs_a(a, b, flg);
+		ft_rr_a(a, b, flg);
+		ft_rr_a(a, b, flg);
+		ft_success(a, b, *flg);
+	}
 	while (1)
 	{
 		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A
@@ -94,5 +103,4 @@ int				ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 		ft_z(a) > ft_y(a) ? ft_algo(a, b, flg, SA) : 0;
 		ft_z(b) < ft_y(b) ? ft_algo(a, b, flg, SB) : 0;
 	}
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 16:35:05 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 20:04:32 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	pa(t_swap *a, t_swap *b)
 
 int		ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	if (ft_sorted_a(a) && !ft_is_null(b))
 		ft_rpb_a(a, b, flg);
 	else
@@ -57,7 +56,6 @@ int		ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg)
 
 int		ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg)
 {
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	if ((!flg->display || flg->all) && flg->color)
 		flg->verbose ? ft_printf("{c}pa{0}\n") : ft_printf("{c}pa{0} ");
 	else if (!flg->display || flg->all)
