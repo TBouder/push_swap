@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/19 20:14:00 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 13:41:56 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int			ft_calls_push(t_swap *a, t_swap *b, t_flag *flg)
 
 	r = 0;
 	!r && ft_z(b) >= ft_y(b) && ft_z(b) < B ? r = RRB : 0;
+	!r && ft_z(a) > A && flg->prev == -1 && ft_order(a) ? r = RRA : 0;
 	!r && ft_z(a) > A && flg->prev < 2 ? r = RRA : 0;
 	!r && ft_z(a) > A && flg->prev == 2 ? r = RA : 0;
 	if (!r && ft_z(a) > ft_y(a))
@@ -51,6 +52,7 @@ int			ft_calls_push(t_swap *a, t_swap *b, t_flag *flg)
 	}
 	else if (!r && ft_z(a) < ft_y(a))
 		r = ft_call_push_helper(a, b);
+	flg->prev == -1 ? flg->prev = 0 : 0;
 	return (r);
 }
 
@@ -74,6 +76,7 @@ int			ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg)
 	!r && ft_z(b) >= ft_y(b) && ft_z(b) < B ? r = RRB : 0;
 	!r && !BNULL && ft_z(b) < ft_y(b) && ft_z(b) > B && flg->prev == 2
 		? r = RB : 0;
+	flg->prev == -1 ? flg->prev = 0 : 0;
 	return (r);
 }
 

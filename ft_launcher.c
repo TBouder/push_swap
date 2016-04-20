@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/19 13:09:23 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 13:32:02 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,17 @@ int				ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
 	while (1)
 	{
-		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A && ft_is_r_sorted(a->end) ? ft_algo(a, b, flg, RA) : 0;
-		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_is_r_sorted(a->end->prev) ? ft_algo(a, b, flg, RA) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) < A && ft_y(a) < A ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A
+			&& ft_is_r_sorted(a->end) ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_is_r_sorted(a->end->prev)
+			? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) < A && ft_y(a) < A
+			? ft_algo(a, b, flg, RA) : 0;
 		ft_z(a) < ft_y(a) && ft_z(a) < A ? ft_algo(a, b, flg, PB) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A && !ft_order(a) ? ft_algo(a, b, flg, RRA) : 0;
-		ft_z(a) < ft_y(a) && ft_z(a) > A && ft_order(a) ? ft_algo(a, b, flg, RA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A && !ft_order(a)
+			? ft_algo(a, b, flg, RRA) : 0;
+		ft_z(a) < ft_y(a) && ft_z(a) > A && ft_order(a)
+			? ft_algo(a, b, flg, RA) : 0;
 		ft_z(a) > ft_y(a) ? ft_algo(a, b, flg, SA) : 0;
 		ft_z(b) < ft_y(b) ? ft_algo(a, b, flg, SB) : 0;
 	}
