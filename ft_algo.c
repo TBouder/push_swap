@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 11:22:24 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 13:43:03 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 16:05:00 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ static int	ft_call_push_helper(t_swap *a, t_swap *b)
 	!r && !BNULL && ft_z(b) < ft_y(b) ? r = RB : 0;
 	!r && ft_z(a) > A && ft_z(b) > ft_y(b) && ft_z(b) < B && ft_order(a)
 		? r = RR : 0;
-	!r && ft_z(a) < A && a->next->next && a->next->next->stack > a->next->stack
+	!r && ft_z(a) < A && a->next && a->next->next
+		&& a->next->next->stack > a->next->stack ? r = PB : 0;
+	!r && ft_z(a) < A && a->next && a->next->stack > A
 		? r = PB : 0;
-	!r && ft_z(a) < A && a->next && a->next->stack > A ? r = PB : 0;
-	!r && ft_z(a) < A && ft_y(a) > A && (a->next->stack < ft_z(a)
+	!r && ft_z(a) < A && ft_y(a) > A && a->next && (a->next->stack < ft_z(a)
 		|| ft_is_sorted(a->next)) ? r = RRA : 0;
 	!r && ft_z(a) < A ? r = PB : 0;
 	return (r);
@@ -69,7 +70,7 @@ int			ft_calls_swap(t_swap *a, t_swap *b, t_flag *flg)
 			&& !ft_order(a) ? r = RRR : 0;
 		!r && ft_z(a) > A && flg->prev < 2 ? r = RRA : 0;
 		!r && ft_z(a) > A && flg->prev == 2 ? r = RA : 0;
-		!r && ft_z(a) < A && ft_y(a) > A && (a->next->stack < ft_z(a)
+		!r && ft_z(a) < A && ft_y(a) > A && a->next && (a->next->stack < ft_z(a)
 			|| ft_is_sorted(a->next)) ? r = RRA : 0;
 		!r && ft_z(a) < A ? r = PB : 0;
 	}

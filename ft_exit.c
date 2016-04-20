@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:47:53 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/19 14:38:09 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 16:29:43 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@ void	ft_success(t_swap *a, t_swap *b, t_flag flg)
 	{
 		ft_putstr("\n\nEnding stack : ");
 		ft_print_swap(a);
+		flg.ope ? ft_putchar('\n') : 0;
 	}
 	a = NULL;
 	b = NULL;
 	free(a);
 	free(b);
 	if (flg.ope && flg.color && !flg.display)
-		ft_printf("\n\nNumber of operations : {g}%d{0}\n", flg.cnt);
+		ft_printf("\nNumber of operations : {g}%d{0}\n", flg.cnt);
 	else if (flg.ope && !flg.color && !flg.display)
-		ft_printf("\n\nNumber of operations : %d\n", flg.cnt);
-	else if (flg.ope && flg.color && flg.display)
+		ft_printf("\nNumber of operations : %d\n", flg.cnt);
+	else if (flg.ope && flg.color && flg.display && !flg.all)
 		ft_printf("Number of operations : {g}%d{0}\n", flg.cnt);
-	else if (flg.ope && !flg.color && flg.display)
+	else if (flg.ope && !flg.color && flg.display && !flg.all)
 		ft_printf("Number of operations : %d\n", flg.cnt);
 	else
 		ft_putchar('\n');
@@ -54,6 +55,7 @@ void	ft_usage(char *str)
 	ft_putendl_fd("\t-o : Display the number of operations", 2);
 	ft_putendl_fd("\t-i : Display starting and ending 'a' stack", 2);
 	ft_putendl_fd("\t-a : Enable all the previous tags", 2);
+	ft_putendl_fd("\t-s : Display nothing because John Snow knows nothing", 2);
 	exit(EXIT_FAILURE);
 }
 

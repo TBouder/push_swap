@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 23:57:54 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 13:20:19 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 16:36:40 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	rr(t_swap *a, t_swap *b)
 int		ft_rr_a(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
-	if (!flg->display && flg->color)
+	if ((!flg->display || flg->all) && flg->color)
 		flg->verbose ? ft_printf("{c}ra{0}\n") : ft_printf("{c}ra{0} ");
-	else if (!flg->display)
+	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("ra\n") : ft_printf("ra ");
 	ra(a);
 	flg->prev = 2;
@@ -59,9 +59,9 @@ int		ft_rr_a(t_swap *a, t_swap *b, t_flag *flg)
 int		ft_rr_b(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
-	if (!flg->display && flg->color)
+	if ((!flg->display || flg->all) && flg->color)
 		flg->verbose ? ft_printf("{b}rb{0}\n") : ft_printf("{b}rb{0} ");
-	else if (!flg->display)
+	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("rb\n") : ft_printf("rb ");
 	ra(b);
 	flg->verbose ? ft_flag_v(a, b) : 0;
@@ -72,9 +72,9 @@ int		ft_rr_b(t_swap *a, t_swap *b, t_flag *flg)
 int		ft_rr_ab(t_swap *a, t_swap *b, t_flag *flg)
 {
 	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
-	if (!flg->display && flg->color)
+	if ((!flg->display || flg->all) && flg->color)
 		flg->verbose ? ft_printf("{y}rr{0}\n") : ft_printf("{y}rr{0} ");
-	else if (!flg->display)
+	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("rr\n") : ft_printf("rr ");
 	rr(a, b);
 	flg->prev = 2;

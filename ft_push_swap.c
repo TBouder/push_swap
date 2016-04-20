@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:30:01 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/15 10:54:04 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 16:27:27 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void		ft_all(t_flag *flg)
 	flg->color = 1;
 	flg->ope = 1;
 	flg->infos = 1;
+	flg->all = 1;
 }
 
 static void		ft_extract_flg(char **str, t_flag *flg, int i, int j)

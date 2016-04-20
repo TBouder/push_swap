@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 13:32:00 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/20 16:27:24 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		s_flag
 	int				color;
 	int				ope;
 	int				infos;
+	int				all;
 	int				total_mod;
 	long			cnt;
 	int				prev;
