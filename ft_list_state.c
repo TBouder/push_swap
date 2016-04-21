@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 13:51:05 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 16:04:09 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/21 14:18:05 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,6 @@ int		ft_sorted_a(t_swap *swap)
 		swap = swap->next;
 	}
 	return (1);
-}
-
-int		ft_sorted_all(t_swap *a, t_swap *b)
-{
-	a = a->end;
-	while (a && a->activ == 0 && a->prev)
-		a = a->prev;
-	b = b->end;
-	while (b && b->activ == 0 && b->prev)
-		b = b->prev;
-	if (b->stack < a->stack)
-		return (1);
-	return (0);
 }
 
 int		ft_is_sorted(t_swap *swap)

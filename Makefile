@@ -6,7 +6,7 @@
 #    By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 15:48:47 by tbouder           #+#    #+#              #
-#    Updated: 2016/04/20 20:39:15 by tbouder          ###   ########.fr        #
+#    Updated: 2016/04/21 14:02:44 by tbouder          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ HEADER 		=	ft_push_swap.h ft_printf/ft_printf.h
 all: $(NAME)
 
 .SILENT : $(NAME)
-$(NAME):
+$(NAME): $(OBJ)
 	$(MAKE) re -C ft_printf
 	$(CC) $(CFLAGS) -c $(HEADER) $(SRC)
-	$(CC) $(LIMIT) -o $(NAME) $(OBJ) $(LIB)
+	$(CC) -o $(NAME) $(OBJ) $(LIB)
 
 .SILENT : clean
 clean:

@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 14:05:00 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 20:39:01 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/04/21 14:17:30 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		ft_algo(t_swap *a, t_swap *b, t_flag *flg, int id)
 	int		i;
 
 	i = id;
-	while (!(ft_is_sorted(a) && ft_is_null(b)))
+	while (1)
 	{
 		(id == PB) ? i = ft_rpa_b(a, b, flg) : 0;
 		(id == PA) ? i = ft_rpb_a(a, b, flg) : 0;
@@ -37,7 +37,6 @@ static void		ft_algo(t_swap *a, t_swap *b, t_flag *flg, int id)
 		(i == 4) ? id = ft_calls_swap(a, b, flg) : 0;
 		ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 	}
-	ft_is_sorted(a) && ft_is_null(b) ? ft_success(a, b, *flg) : 0;
 }
 
 int				ft_z(t_swap *swap)
@@ -78,9 +77,9 @@ int				ft_w(t_swap *swap)
 
 void			ft_launcher(t_swap *a, t_swap *b, t_flag *flg)
 {
-	ft_start_unordered(a, b, flg);
 	while (1)
 	{
+		ft_start_unordered(a, b, flg);
 		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_y(a) < A
 			&& ft_is_r_sorted(a->end) ? ft_algo(a, b, flg, RA) : 0;
 		ft_z(a) > A && ft_z(a) > ft_y(a) && ft_is_r_sorted(a->end->prev)
