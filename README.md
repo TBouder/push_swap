@@ -22,7 +22,8 @@
 - [x] -c for color mode    
 - [x] -o to display the number of operation at the end  
 - [x] -i to display some informations (Starting and ending stack)  
-- [x] -a for all flags  
+- [x] -a for all previous flags  
+- [x] -s to display nothing  
 - [x] Possibility to use -vcio instead of -v -c -i -o  
 - [x] Custom messages for exit (Success, error, already ordered, only one number)  
 - [x] Usage message
