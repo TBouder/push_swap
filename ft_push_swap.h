@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 12:27:33 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/21 14:18:18 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/06/08 19:55:34 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int					ft_sorted_a(t_swap *swap);
 int					ft_is_sorted(t_swap *swap);
 int					ft_is_r_sorted(t_swap *swap);
 int					ft_is_null(t_swap *swap);
+int					ft_swap_len(t_swap *swap);
 
 /*
 ** ft_recursiv

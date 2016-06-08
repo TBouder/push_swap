@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 20:36:51 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/21 14:20:51 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/06/08 19:56:23 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@ static int		ft_count_stack(t_swap *a)
 	{
 		a = a->next;
 		i++;
+	}
+	return (i);
+}
+
+static int		ft_count_stack_rev(t_swap *a)
+{
+	int		i;
+
+	i = 0;
+	while (a->next)
+	{
+		if (A < a->next->stack)
+			i++;
+		a = a->next;
 	}
 	return (i);
 }
@@ -43,17 +57,23 @@ static void		ft_unordered_helper(t_swap *a, t_swap *b, t_flag *flg, int i)
 	int		j;
 
 	j = 0;
-	ft_rrr_a(a, b, flg);
-	ft_rrr_a(a, b, flg);
-	while (j++ < i)
+	while (j++ <= i)
+		ft_rrr_a(a, b, flg);
+	j = ft_count_stack_rev(a);
+	while (j-- > 1)
 	{
-		if (j != i)
-			ft_rrr_a(a, b, flg);
+		ft_rs_a(a, b, flg);
+		if (j != 1)
+			ft_rpa_b(a, b, flg);
 		else
 			ft_rr_a(a, b, flg);
-		ft_rs_a(a, b, flg);
 	}
-	ft_rr_a(a, b, flg);
+	j = ft_swap_len(b);
+	while (j-- > 0)
+	{
+		ft_rpb_a(a, b, flg);
+		ft_rr_a(a, b, flg);
+	}
 	ft_rr_a(a, b, flg);
 	ft_success(a, b, *flg);
 }
