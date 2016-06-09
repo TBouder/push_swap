@@ -39,7 +39,7 @@ void	ss(t_swap *a, t_swap *b)
 int		ft_rs_a(t_swap *a, t_swap *b, t_flag *flg)
 {
 	if ((!flg->display || flg->all) && flg->color)
-		flg->verbose ? ft_printf("{c}sa{0}\n") : ft_printf("{c}sa{0} ");
+		flg->verbose ? ft_printf("{166}sa{0}\n") : ft_printf("{166}sa{0} ");
 	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("sa\n") : ft_printf("sa ");
 	sa(a);
@@ -51,7 +51,7 @@ int		ft_rs_a(t_swap *a, t_swap *b, t_flag *flg)
 int		ft_rs_b(t_swap *a, t_swap *b, t_flag *flg)
 {
 	if ((!flg->display || flg->all) && flg->color)
-		flg->verbose ? ft_printf("{b}sb{0}\n") : ft_printf("{b}sb{0} ");
+		flg->verbose ? ft_printf("{75}sb{0}\n") : ft_printf("{75}sb{0} ");
 	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("sb\n") : ft_printf("sb ");
 	sa(b);
@@ -63,7 +63,7 @@ int		ft_rs_b(t_swap *a, t_swap *b, t_flag *flg)
 int		ft_rs_ab(t_swap *a, t_swap *b, t_flag *flg)
 {
 	if ((!flg->display || flg->all) && flg->color)
-		flg->verbose ? ft_printf("{y}ss{0}\n") : ft_printf("{y}ss{0} ");
+		flg->verbose ? ft_printf("{120}ss{0}\n") : ft_printf("{120}ss{0} ");
 	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("ss\n") : ft_printf("ss ");
 	ss(a, b);

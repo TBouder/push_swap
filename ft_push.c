@@ -6,7 +6,7 @@
 /*   By: tbouder <tbouder@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 21:46:57 by tbouder           #+#    #+#             */
-/*   Updated: 2016/04/20 20:04:32 by tbouder          ###   ########.fr       */
+/*   Updated: 2016/06/09 19:40:20 by tbouder          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg)
 	else
 	{
 		if ((!flg->display || flg->all) && flg->color)
-			flg->verbose ? ft_printf("{b}pb{0}\n") : ft_printf("{b}pb{0} ");
+			flg->verbose ? ft_printf("{75}pb{0}\n") : ft_printf("{75}pb{0} ");
 		else if (!flg->display || flg->all)
 			flg->verbose ? ft_printf("pb\n") : ft_printf("pb ");
 		pa(b, a);
@@ -57,7 +57,7 @@ int		ft_rpa_b(t_swap *a, t_swap *b, t_flag *flg)
 int		ft_rpb_a(t_swap *a, t_swap *b, t_flag *flg)
 {
 	if ((!flg->display || flg->all) && flg->color)
-		flg->verbose ? ft_printf("{c}pa{0}\n") : ft_printf("{c}pa{0} ");
+		flg->verbose ? ft_printf("{166}pa{0}\n") : ft_printf("{166}pa{0} ");
 	else if (!flg->display || flg->all)
 		flg->verbose ? ft_printf("pa\n") : ft_printf("pa ");
 	pa(a, b);
